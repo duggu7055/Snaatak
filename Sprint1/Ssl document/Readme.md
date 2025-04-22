@@ -56,35 +56,37 @@ SSL is a protocol that provides secure communications on the internet for web br
 ### Steps to Obtain an SSL Certificate:
 Obtaining an SSL certificate involves several steps. Follow this guide for a smooth process:
 
-1. **Decide the Type of SSL Certificate You Need**
+Step 1. **Decide the Type of SSL Certificate You Need**
    - Single Domain: Protects one specific domain.
    - Multi-Domain (SAN): Covers multiple domains under one certificate.
    - Wildcard: Secures a domain and all its subdomains.
 
-2. **Generate a Certificate Signing Request (CSR)**
+Step 2. **Generate a Certificate Signing Request (CSR)**
    - Use your server to create a CSR and a private key. Most hosting providers and server software provide tools for this.
    - The CSR includes information about your organization and domain.
 
-3. **Choose a Certificate Authority (CA)**
+Step 3. **Choose a Certificate Authority (CA)**
    - Examples: DigiCert, Let's Encrypt, GlobalSign, Comodo, and GoDaddy.
    - Compare prices, features, and validation levels (DV, OV, EV) before deciding.
 
-4. **Submit the CSR to the Chosen CA**
+Step 4. **Submit the CSR to the Chosen CA**
    - Log in to the CA’s portal and upload your CSR.
    - Complete the required details for verification.
 
-5. **Complete Domain Validation**
+Step 5. **Complete Domain Validation**
    - The CA verifies your control over the domain. This can be done through:
      - Email validation (a verification email is sent to a domain-related address).
      - DNS validation (adding a specific record to your domain’s DNS settings).
      - HTTP validation (uploading a specific file to your web server).
 
-6. **Receive and Install the SSL Certificate**
+Step 6. **Receive and Install the SSL Certificate**
    - After validation, the CA will issue your certificate.
    - Download the certificate and install it on your server. Refer to your hosting provider or server documentation for installation instructions.
 
-7. **Test Your SSL Certificate**
+Step 7. **Test Your SSL Certificate**
    - Use online tools like SSL Labs to ensure your certificate is installed correctly and functions as expected
+
+
   
 ---
 
