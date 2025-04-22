@@ -70,18 +70,7 @@ SSL is a protocol that provides secure communications on the internet for web br
    - Install the issued SSL certificate on your server.
 
 ## Different SSL Providers
-1. **DigiCert**
-   - Known for high-level security and excellent customer support.
-2. **GlobalSign**
-   - Offers scalable solutions for enterprises.
-3. **Let's Encrypt**
-   - Provides free SSL certificates, widely adopted.
-4. **Comodo**
-   - Affordable options with a strong reputation.
-5. **GoDaddy**
-   - Easy-to-use services for small businesses.
-
-## Detailed Comparison
+## Different SSL Providers
 | Provider        | Cost           | Validation Types         | Features                    | Support       |
 |-----------------|----------------|--------------------------|-----------------------------|---------------|
 | DigiCert        | High           | DV, OV, EV               | High assurance, fast issuance | 24/7         |
@@ -89,6 +78,8 @@ SSL is a protocol that provides secure communications on the internet for web br
 | Let's Encrypt   | Free           | DV                       | Automated, renewable       | Community     |
 | Comodo          | Low            | DV, OV, EV               | Budget-friendly            | 24/7         |
 | GoDaddy         | Medium         | DV, OV                   | Simplified for small businesses | 24/7     |
+
+---
 
 ## Recommendations
 | Recommendation           | Details                                                                 |
