@@ -122,31 +122,32 @@ This document provides concise instructions for installing, configuring, and usi
    
    ```
 
-2. **Add the ScyllaDB repository**
-```bash
-sudo yum install -y scylla
-
-```
-### Ubuntu
-
-1. Add the ScyllaDB repository:
+2. **Install ScyllaDB**
    ```bash
-   sudo curl -o /etc/apt/sources.list.d/scylla.list https://downloads.scylladb.com/deb/ubuntu/scylla.list
-
-   
+   sudo yum install -y scylla
    ```
 
-2. **Add the ScyllaDB repository**
-```bash
-sudo apt update
-sudo apt install -y scylla
-```
+
+
+### Ubuntu
+
+   1. **Add the ScyllaDB Repository**
+         ```bash
+        sudo curl -o /etc/apt/sources.list.d/scylla.list https://downloads.scylladb.com/deb/ubuntu/scylla.list
+        ```
+
+2. **Update and Install ScyllaDB**
+ -  To update the package follow, [Step 3](https://github.com/snaatak-Downtime-Crew/Documentation/blob/durgesh_scrums_3/common_stack/operating_system/ubuntu/sop/commoncommands/README.md#1-basic-system-commands) of basic commands
+   
+    ```bash
+    sudo apt install -y scylla
+    ```
 ### Start the Service:
 After installation, start the ScyllaDB server:
-```bash
-sudo systemctl start scylla-server
-
-```
+   ```bash
+    sudo systemctl start scylla-server
+   ```
+        
 
 ## Configuration
 Modify the configuration file `scylla.yaml` located at `/etc/scylla/` to customize the setup:
