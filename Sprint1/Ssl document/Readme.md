@@ -22,7 +22,7 @@
 9. [References](#references)
 
 ## Introduction
-Secure Sockets Layer (SSL) is a standard security technology for establishing an encrypted link between a server and a client—typically a web server (website) and a browser, or a mail server and a mail client. SSL ensures that all data passed between the web server and browsers remain private and integral.
+This documentation provides an overview of SSL (Secure Sockets Layer), explaining its importance, functionality, and steps for implementation. It serves as a guide for understanding and deploying SSL effectively.
 
 ## Why SSL is Important
 | Benefit            | Description                                                                   |
