@@ -28,7 +28,7 @@
 Git commit hooks are scripts that automate tasks and enforce rules during the Git workflow. They help maintain code quality and consistency.
 
 ---
----
+
 
 ## Purpose of Commit Hooks
 
