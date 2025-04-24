@@ -44,7 +44,7 @@
 This document creates a basic software template. A software template is a pre-designed structure that serves as a starting point for creating software documentation. This template provides an organizational layout and content structure.
 
 ---
-## Purposes
+## Purpose
 Scenarios that demonstrate how a product, service, or system can be applied or utilized to solve specific problems or meet particular needs.
 
 ---
