@@ -17,20 +17,21 @@
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [Key Features](#key-features)
-3. [Getting Started](#getting-started)
+2. [Purpose](#purpose)
+3. [Key Features](#key-features)
+4. [Getting Started](#getting-started)
    - [Pre-requisites](#pre-requisites)
-4. [Software Overview](#software-overview)
-5. [System Requirement](#system-requirement)
-6. [Important Ports](#important-ports)
-7. [Dependencies](#dependencies)
+5. [Software Overview](#software-overview)
+6. [System Requirement](#system-requirement)
+7. [Important Ports](#important-ports)
+8. [Dependencies](#dependencies)
     - [Run-time Dependency](#run-time-dependency)
     - [Other Dependency](#other-dependency)
-8. [How to Setup/Install](#how-to-setupinstall-software-name)
-9. [Configuration](#configuration)
-10. [Conclusion](#conclusion)
-11. [Contact](#contact)
-12. [References](#references)
+9. [How to Setup/Install](#how-to-setupinstall-software-name)
+10. [Configuration](#configuration)
+11. [Conclusion](#conclusion)
+12. [Contact](#contact)
+13. [References](#references)
 
 
 
@@ -43,7 +44,10 @@
 This document creates a basic software template. A software template is a pre-designed structure that serves as a starting point for creating software documentation. This template provides an organizational layout and content structure.
 
 ---
+## Purposes
+Scenarios that demonstrate how a product, service, or system can be applied or utilized to solve specific problems or meet particular needs.
 
+---
 
 
 
