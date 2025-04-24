@@ -30,8 +30,9 @@
 9. [How to Setup/Install](#how-to-setupinstall-software-name)
 10. [Configuration](#configuration)
 11. [Conclusion](#conclusion)
-12. [Contact](#contact)
-13. [References](#references)
+12. [Troubleshooting](#troubleshooting)
+13. [Contact](#contact)
+14. [References](#references)
 
 
 
@@ -144,6 +145,12 @@ For example:
 ## Conclusion
 
 This document provides a structured approach for understanding, installing, and managing the software effectively.
+
+---
+
+## Troubleshooting
+
+Mention all the common issues that you encountered while performing setup of the Application. If you think there are some specific errors that are seen, you can add their screenshots or give a brief explanation of issue and offer solution to resolve it or guide the user to troubleshoot easily.
 
 ---
 
