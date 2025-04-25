@@ -1,5 +1,5 @@
 
-# Commit Hooks
+# Understanding of Commit Hooks
 
 ## Author Information
 
