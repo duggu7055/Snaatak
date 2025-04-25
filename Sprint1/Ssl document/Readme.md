@@ -16,10 +16,11 @@
 3. [What is SSL?](#what-is-ssl)
 4. [How SSL Works](#how-ssl-works)
 5. [How to Get an SSL Certificate](#how-to-get-an-ssl-certificate)
-6. [Different SSL Providers](#different-ssl-providers)
-7. [Recommendations](#recommendations)
-8. [Contact Information](#contact-information)
-9. [References](#references)
+6. [Different SSL provider](#different-ssl-provider)
+7. [Comparison between SSL providers](#comparison-between-ssl-providers)
+8. [Recommendations](#recommendations)
+9. [Contact Information](#contact-information)
+10. [References](#references)
 
 ## Introduction
 This documentation provides an overview of SSL (Secure Sockets Layer), explaining its importance, functionality, and steps for implementation. It serves as a guide for understanding and deploying SSL effectively.
@@ -86,11 +87,20 @@ Step 6. **Receive and Install the SSL Certificate**
 Step 7. **Test Your SSL Certificate**
    - Use online tools like SSL Labs to ensure your certificate is installed correctly and functions as expected
 
+---
+## Different SSL provider
+
+- DigiCert
+- GlobalSign
+- Let's Encrypt
+- Comodo
+- GoDaddy
+
 
   
 ---
 
-## Different SSL Providers
+## Comparison between SSL providers
 
 | Provider        | Cost           | Validation Types         | Features                    | Support       |
 |-----------------|----------------|--------------------------|-----------------------------|---------------|
