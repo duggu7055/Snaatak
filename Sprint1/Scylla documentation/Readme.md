@@ -110,7 +110,7 @@ ScyllaDB is an excellent choice for applications requiring high performance, low
 
 | **Name**           | **Email Address**                                 |
 |---------------------|--------------------------------------------------|
-| Durgesh Sharma      | durgesh                                          |
+| Durgesh Sharma      | durgesh.sharma.snaatak@mygurukulam.co                                         |
 
 ---
 
