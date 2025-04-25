@@ -177,7 +177,8 @@ The Salary API, a key component of the OT-Microservices system, manages salary t
 ## References
 | Reference               | Link                                                                           |
 |-------------------------|--------------------------------------------------------------------------------|
-| ScyllaDB Installation Guide   | [Click here](https://docs.github.com)                             |
+| ScyllaDB Introduction documentation    | [Click here](https://github.com/duggu7055/Snaatak/blob/main/Sprint1/Scylla%20documentation/Readme.md)                             |
+| ScyllaDB Installation documentation    | [Click here](https://docs.github.com)                             |
 | Redis Installation Guide              | [Click here](https://hub.docker.com)                               |
 | Maven                   | [Click here](https://maven.apache.org/what-is-maven.html)                                           |
 
