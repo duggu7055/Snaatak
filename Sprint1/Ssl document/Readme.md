@@ -40,6 +40,10 @@ SSL is a protocol that provides secure communications on the internet for web br
 - Ensuring data integrity to detect tampering during transmission.
 
 ## How SSL Works
+
+<img width="900" length="600" alt="Terraform" src="https://cdn.prod.website-files.com/5ff66329429d880392f6cba2/67b431857517e723a3cbb452_61f24e2c878eda436d3ab604_SSL%2520Certificate%2520Overview.jpeg">
+
+
 1. **Handshake Process:**
    - The client requests a secure session.
    - The server responds with its SSL certificate.
