@@ -1,13 +1,17 @@
 # ScyllaDB Documentation
 
+<div align="center">
+    <img width="900" Height="400" alt="Terraform" src="https://www.scylladb.com/wp-content/uploads/1200x675-x-license-change-2024.jpg">
+</div>
+
 ## Author Information
 
 | **Created**       | **Version** | **Last Modified** | **Author**        | **Level**            | **Reviewer**  |
 |--------------------|-------------|-------------------|-------------------|----------------------|---------------|
-|                    |             |                   |  Durgesh Sharma   | Internal review      | Pritam        |
-|                    |             |                   |  Durgesh Sharma   | L0 Review            | Shreya Jaiswal|
-|                    |             |                   |  Durgesh Sharma   | L1 Review            | Abhishek V    |
-|                    |             |                   |  Durgesh Sharma   | L2 Review            | Abhishek Dubey    |
+|   26-04-2025       |     V1      |                   |  Durgesh Sharma   | Internal review      | Pritam        |
+|   26-04-2025       |             |                   |  Durgesh Sharma   | L0 Review            | Shreya Jaiswal|
+|   26-04-2025       |             |                   |  Durgesh Sharma   | L1 Review            | Abhishek V    |
+|   26-04-2025       |             |                   |  Durgesh Sharma   | L2 Review            | Abhishek Dubey    |
 
 ---
 
@@ -84,7 +88,7 @@ ScyllaDB is chosen for its unique combination of performance, scalability, and c
 
 ## Installation and Configuration
 
-- Follow the [link]() for the installation document.
+- Follow the [link](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-88-Adil/ot-ms-understanding/scylladb/poc/README.md) for the installation and configuration of Scylladb.
 
 ---
 
@@ -119,5 +123,5 @@ ScyllaDB is an excellent choice for applications requiring high performance, low
 | **Link**                                             | **Description**                                              |
 |------------------------------------------------------|--------------------------------------------------------------|
 | [Official ScyllaDB Documentation](https://www.scylladb.com/documentation/) | Detailed official documentation of ScyllaDB.                 |
-| [Installation Guide for ScyllaDB](https://www.scylladb.com/download/)      | Comprehensive guide to install ScyllaDB on various platforms. |
+| [Installation Guide for ScyllaDB](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-88-Adil/ot-ms-understanding/scylladb/poc/README.md)      | Comprehensive guide to install ScyllaDB on various platforms. |
 | [Cassandra Compatibility](https://www.scylladb.com/cassandra-compatibility/) | Information about ScyllaDB's compatibility with Cassandra.   |
