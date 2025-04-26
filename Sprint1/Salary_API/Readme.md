@@ -70,7 +70,7 @@ sudo apt update
 | **Tool**      | **Installation Steps**                                                                                 |
 |-----------|---------------------------------------------------------------------------------------------------|
 | **ScyllaDB**  | Follow this [link]() to install and Configure ScyllaDB                                                          |
-| **Redis**      | Follow this [link]() to install and Configure Redis                                                             |
+| **Redis**      | Follow this [link](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-84-PRINCE/ot-ms-understanding/redis/poc/README.md) to install and Configure Redis                                                             |
 | **Java 17**   | `sudo apt install openjdk-17-jre-headless -y`                                                     |
 | **Maven**     | `sudo apt install maven -y`                                                                       |
 | **jq**        | `sudo apt install jq -y`                                                                          |
@@ -179,7 +179,7 @@ The Salary API, a key component of the OT-Microservices system, manages salary t
 |-------------------------|--------------------------------------------------------------------------------|
 | ScyllaDB Introduction documentation    | [Click here](https://github.com/duggu7055/Snaatak/blob/main/Sprint1/Scylla%20documentation/Readme.md)                             |
 | ScyllaDB Installation documentation    | [Click here](https://docs.github.com)                             |
-| Redis Installation Guide              | [Click here](https://hub.docker.com)                               |
+| Redis Installation Guide              | [Click here](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-84-PRINCE/ot-ms-understanding/redis/poc/README.md)                               |
 | Maven                   | [Click here](https://maven.apache.org/what-is-maven.html)                                           |
 
 
