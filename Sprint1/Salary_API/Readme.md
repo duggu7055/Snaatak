@@ -73,14 +73,14 @@ sudo apt update
 
 
 ## Installing Dependencies for Salary API
-| **Tool**      | **Installation Steps**                                                                                 |
-|-----------|---------------------------------------------------------------------------------------------------|
-| **ScyllaDB**  | Follow this [link]() to install and Configure ScyllaDB                                                          |
-| **Redis**      | Follow this [link](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-84-PRINCE/ot-ms-understanding/redis/poc/README.md) to install and Configure Redis                                                             |
-| **Java 17**   | `sudo apt install openjdk-17-jre-headless -y`                                                     |
-| **Maven**     | `sudo apt install maven -y`                                                                       |
-| **jq**        | `sudo apt install jq -y`                                                                          |
-| **make**      | `sudo apt install make -y`                                                                        |
+| **Tool**      | **Installation Steps**                                                                                              |
+|---------------|--------------------------------------------------------------------------------------------------------------------|
+| **ScyllaDB**  | Follow this [link](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-88-Adil/ot-ms-understanding/scylladb/poc/README.md) to install and configure ScyllaDB |
+| **Redis**     | Follow this [link](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-84-PRINCE/ot-ms-understanding/redis/poc/README.md) to install and configure Redis     |
+| **Java 17**   | `sudo apt install openjdk-17-jre-headless -y`                                                                      |
+| **Maven**     | `sudo apt install maven -y`                                                                                        |
+| **jq**        | `sudo apt install jq -y`                                                                                           |
+| **make**      | `sudo apt install make -y`                                                                                         |
 
 ### golang-migrate
 **1. Download and extract:**
