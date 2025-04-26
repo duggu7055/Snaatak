@@ -1,6 +1,13 @@
 
 # Understanding of Commit Hooks
 
+<div align="center">
+    <img width="300" alt="Terraform" src="https://hamon.in/wp-content/uploads/2023/05/git-hooks.png">
+</div>
+
+
+
+
 ## Author Information
 
 | **Created**       | **Version** | **Last Modified** | **Author**        | **Level**            | **Reviewer**  |
@@ -45,6 +52,8 @@ The primary goals of commit hooks include:
 ---
 
 ## Types of Commit Hooks
+
+<img width="900" length="600" alt="Terraform" src="https://d8it4huxumps7.cloudfront.net/uploads/images/652f8091f32cc_git_hooks_06.jpg?d=2000x2000">
 
 Git hooks are divided into two categories:
 
