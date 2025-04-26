@@ -58,6 +58,8 @@ The Salary API application have some database, cache manager and package depende
 
 ![logo](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuRhRs1-8S8j6QR7e6XYG2y-4hVo8bOz656bCQ1_pTv6R9ty6W6XC5r0oQ_C-58hFb__dtbHCpgP9VVhlgXtA2MUbAhdlQVtEiX-rG00TZKmEE-VXnA0069mT-LKO0z1FPkhmz4xICp0LnHNu-k2eRjxXyDLf9rRtB4kljiUWPC09WSd2xpyrybH8EEaU/s16000/archi.png)
 
+
+
 ---
 
 # Installation
@@ -66,6 +68,10 @@ The Salary API application have some database, cache manager and package depende
 ```bash
 sudo apt update
 ```
+![image](https://github.com/user-attachments/assets/b2e6de56-bfa2-467e-8f01-752e28c670ba)
+
+
+
 ## Installing Dependencies for Salary API
 | **Tool**      | **Installation Steps**                                                                                 |
 |-----------|---------------------------------------------------------------------------------------------------|
@@ -81,11 +87,15 @@ sudo apt update
    ```bash
    curl -L https://github.com/golang-migrate/migrate/releases/download/v4.15.2/migrate.linux-amd64.tar.gz | tar xvz
    ```
+![image](https://github.com/user-attachments/assets/db964fba-0101-4ffe-9272-7333791c8c21)
+
 
 **2. Move the binary:**
    ```bash
    sudo mv migrate /usr/local/bin/migrate
    ```
+![image](https://github.com/user-attachments/assets/7365d422-ae73-4b5a-8fa9-9ed7d0299984)
+
 
 ## Working with the Salary API Git Repository
 **1. Clone the repository:**
@@ -93,6 +103,8 @@ sudo apt update
    git clone https://github.com/OT-MICROSERVICES/salary-api.git
    cd salary-api
    ```
+![image](https://github.com/user-attachments/assets/8e564cf2-ed91-4817-988b-ee2f2614f6ce)
+
 
 **2. Configure migration:**
    ```bash
@@ -100,11 +112,16 @@ sudo apt update
    ```
    - Replace the IP address with your instance  private IP.
 
+![image](https://github.com/user-attachments/assets/c4356793-6da1-49ad-9719-b43b41c0c935)
+
+
 **3. Update application configuration:**
    ```bash
    vi src/main/resources/application.yml
    ```
    - Replace the IP address with your instance private IP.
+
+![image](https://github.com/user-attachments/assets/de99c150-6601-4997-8478-d5cee451b77f)
 
 **4. Update test configuration:**
    ```bash
@@ -112,11 +129,14 @@ sudo apt update
    ```
    - Replace the IP address with your instance private IP.
 
+![image](https://github.com/user-attachments/assets/de99c150-6601-4997-8478-d5cee451b77f)
+
+
 **5. Update Java API configuration:**
    ```bash
    vi src/main/java/com/opstree/microservice/salary/config/OpenAPIConfig.java
    ```
-   - Replace the IP address with your **public** IP.
+   - Replace the IP address with your **public** IP (in devserver.seturl).
    - Add the following for CORS support:
      ```java
      @Bean
@@ -130,12 +150,16 @@ sudo apt update
        return new CorsFilter(source);
      }
      ```
+![image](https://github.com/user-attachments/assets/9dfa0015-42e2-4f51-95ee-f15c7a6ad00f)
 
 **6. Update test configurations:**
    ```bash
    sudo vi src/test/java/com/opstree/microservice/salary/config/OpenAPIConfigTests.java
    ```
-   - Replace the IP address with your **public** IP.
+   - Replace the IP address with your **public** IP (n assertEquals).
+
+![image](https://github.com/user-attachments/assets/f1726629-4723-4a3c-9ef6-eac2d53922aa)
+
 
 ## Starting the Application
 
@@ -148,6 +172,10 @@ sudo apt update
    ```bash
    make build
    ```
+![image](https://github.com/user-attachments/assets/72ad6be4-8492-49f4-919d-a3c35e44b5eb)
+![image](https://github.com/user-attachments/assets/6e40042a-b47b-4a95-a9e4-23770f56a195)
+
+
 
 **3. Start the application:**
    ```bash
@@ -159,6 +187,12 @@ Visit the following URL in your browser:
 ```
 http://<public-ip>:8080/salary-documentation
 ```
+![image](https://github.com/user-attachments/assets/b662af12-0b41-4743-a28d-c70135533421)
+![image](https://github.com/user-attachments/assets/aa56cc22-0b3e-416f-8a08-36c6655e8106)
+![image](https://github.com/user-attachments/assets/033b28d8-0463-433e-a054-d319aa1976eb)
+
+
+
 
 ---
 
