@@ -139,7 +139,7 @@ Step 7. **Test Your SSL Certificate**
 ## References
 | Reference                 | Link                                                                     |
 |---------------------------|--------------------------------------------------------------------------|
-| SSL/TLS Overview          | [SSL/TLS Overview](https://example.com/ssl-overview)                   |
+| SSL/TLS Overview          | [SSL/TLS Overview](https://www.digicert.com/what-is-ssl-tls-and-https)                   |
 | GoDaddy    | [GoDaddy Help Center](https://www.godaddy.com/help/)                 |
 | Let's Encrypt Documentation | [Let's Encrypt Documentation](https://letsencrypt.org/docs/)          |
 
