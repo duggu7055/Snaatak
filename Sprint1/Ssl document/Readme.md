@@ -4,7 +4,7 @@
 
 | **Created**       | **Version** | **Last Modified** | **Author**        | **Level**            | **Reviewer**  |
 |--------------------|-------------|-------------------|-------------------|----------------------|---------------|
-|          |           |         |  Durgesh Sharma   | Internal review      | Pritam        |
+| 28-04-2025         |    V1       |         |  Durgesh Sharma   | Internal review      | Pritam        |
 |          |           |         |   Durgesh Sharma  | L0 Review            | Shreya Jaiswal|
 |          |             |                   | Durgesh Sharma   | L1 Review            | Abhishek V    |
 |          |             |                   |  Durgesh Sharma  | L2 Review            | Abhishek Dubey    |
@@ -94,11 +94,14 @@ Step 7. **Test Your SSL Certificate**
 ---
 ## Different SSL provider
 
-- DigiCert
-- GlobalSign
-- Let's Encrypt
-- Comodo
-- GoDaddy
+| Certificate Authority | Official Documentation Link                                     |
+|------------------------|---------------------------------------------------------------|
+| DigiCert              | [Visit DigiCert Support](https://www.digicert.com/support)    |
+| GlobalSign            | [Visit GlobalSign Support](https://support.globalsign.com/)   |
+| Let's Encrypt         | [Learn About Let's Encrypt](https://letsencrypt.org/docs/)    |
+| Comodo                | [Explore Comodo Resources](https://www.comodo.com/)   |
+| GoDaddy               | [GoDaddy Help Center](https://www.godaddy.com/help/)          |
+
 
 
   
@@ -137,7 +140,7 @@ Step 7. **Test Your SSL Certificate**
 | Reference                 | Link                                                                     |
 |---------------------------|--------------------------------------------------------------------------|
 | SSL/TLS Overview          | [SSL/TLS Overview](https://example.com/ssl-overview)                   |
-| Certificate Authorities   | [Certificate Authorities](https://example.com/ca-list)                 |
+| GoDaddy    | [GoDaddy Help Center](https://www.godaddy.com/help/)                 |
 | Let's Encrypt Documentation | [Let's Encrypt Documentation](https://letsencrypt.org/docs/)          |
 
 
