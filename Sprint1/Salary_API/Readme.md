@@ -1,29 +1,30 @@
 
-# Salary API
+# POC Of Salary API
 
 ## Author Information
 
 | **Created**       | **Version** | **Last Modified** | **Author**        | **Level**            | **Reviewer**  |
 |--------------------|-------------|-------------------|-------------------|----------------------|---------------|
-|          |           |         |  Durgesh Sharma   | Internal review      | Pritam        |
-|          |           |         |   Durgesh Sharma  | L0 Review            | Shreya Jaiswal|
-|          |             |                   | Durgesh Sharma   | L1 Review            | Abhishek V    |
-|          |             |                   |  Durgesh Sharma  | L2 Review            | Abhishek Dubey    |
+|   26-04-2025       |  V1         |   28-04-2025      |  Durgesh Sharma   | Internal review      | Pritam        |
+|   26-04-2025       |             |         |   Durgesh Sharma  | L0 Review            | Shreya Jaiswal|
+|   26-04-2025       |             |         | Durgesh Sharma   | L1 Review            | Abhishek V    |
+|   26-04-2025       |             |         |  Durgesh Sharma  | L2 Review            | Abhishek Dubey    |
 
 # Table of Contents
 
 1. [Pre-Requisites](#pre-requisites)
 2. [System Requirements](#system-requirements)
 3. [Architecture](#architecture)
-4. [Installation](#installation)
+4. [Ports](#ports)
+5. [API Setup and Execution](#api-setup-and-execution)
    - [Update System Packages](#update-system-packages)
    - [Installing Dependencies for Salary API](#installing-dependencies-for-salary-api)
    - [Working with the Salary API Git Repository](#working-with-the-salary-api-git-repository)
    - [Starting the Application](#starting-the-application)
    - [Access the API](#access-the-api)
-5. [Conclusion](#conclusion)
-6. [Contact Information](#contact-information)
-7. [References](#references)
+6. [Conclusion](#conclusion)
+7. [Contact Information](#contact-information)
+8. [References](#references)
 
 
 ---
@@ -56,18 +57,31 @@ The Salary API application have some database, cache manager and package depende
 
 # Architecture
 
-![logo](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuRhRs1-8S8j6QR7e6XYG2y-4hVo8bOz656bCQ1_pTv6R9ty6W6XC5r0oQ_C-58hFb__dtbHCpgP9VVhlgXtA2MUbAhdlQVtEiX-rG00TZKmEE-VXnA0069mT-LKO0z1FPkhmz4xICp0LnHNu-k2eRjxXyDLf9rRtB4kljiUWPC09WSd2xpyrybH8EEaU/s16000/archi.png)
+![logo](https://github.com/duggu7055/Snaatak/blob/main/salari-api/daigram.drawio%20(2).png
+)
 
 
 
 ---
 
-# Installation
+# Ports
+
+| **Port** | **Protocol/Service**       | **Description**                                                                 |
+|----------|----------------------------|---------------------------------------------------------------------------------|
+| 22       | SSH                        | Used for secure shell access to the server.                                    |
+| 8080     | HTTP (Swagger UI)          | Used for accessing Swagger UI for API documentation.                          |
+| 9042     | ScyllaDB                   | The default port for connecting to ScyllaDB (Cassandra-compatible database).   |
+| 6379     | Redis                      | The default port for connecting to the Redis in-memory data store.            |
+| 80       | HTTP                       | Used for standard web traffic and serving HTTP requests.                      |
+
+---
+
+# API Setup and Execution
 
 ## Update System Packages
-```bash
-sudo apt update
-```
+
+> **Follow STEP 3**: [Update System Packages](https://github.com/snaatak-Downtime-Crew/Documentation/tree/main/common_stack/operating_system/ubuntu/sop/commoncommands).
+
 ![image](https://github.com/user-attachments/assets/b2e6de56-bfa2-467e-8f01-752e28c670ba)
 
 
@@ -105,8 +119,50 @@ sudo apt update
    ```
 ![image](https://github.com/user-attachments/assets/8e564cf2-ed91-4817-988b-ee2f2614f6ce)
 
+---
+**2. Create a service file:**
 
-**2. Configure migration:**
+A service file manages the salary API with systemd, enabling automatic startup, easy control via systemctl, and recovery from failures, ensuring reliable and seamless operation.
+
+```bash
+sudo nano /etc/systemd/system/salary-api.service
+   ```
+
+
+   ```bash
+   [Unit]
+Description=Salary API Service
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/salary-api
+ExecStart=/usr/bin/java -jar /home/ubuntu/salary-api/target/salary-0.1.0-RELEASE.jar
+SuccessExitStatus=143
+Restart=on-failure
+Environment=JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+Environment=SCYLLA_HOST=private-ip
+Environment=REDIS_HOST=private-ip
+
+[Install]
+WantedBy=multi-user.target
+
+   ```
+**3. Service File Commands**
+
+Below are the commands to manage the `salary-api` service using `systemd`. These commands help reload systemd configuration, enable the service to start on boot, start the service manually, and check its current status.
+
+| Command                                  | Description                                                              |
+|------------------------------------------|--------------------------------------------------------------------------|
+| `sudo systemctl daemon-reload`           | Reloads systemd manager configuration to recognize changes in service files. |
+| `sudo systemctl enable salary-api.service` | Enables the service to start automatically on system boot.              |
+| `sudo systemctl start salary-api.service` | Starts the `salary-api` service immediately.                            |
+| `sudo systemctl status salary-api.service` | Displays the current status of the service, including logs and errors.  |
+
+---
+
+
+**4. Configure migration:**
    ```bash
    vi migration.json
    ```
@@ -115,7 +171,7 @@ sudo apt update
 ![image](https://github.com/user-attachments/assets/c4356793-6da1-49ad-9719-b43b41c0c935)
 
 
-**3. Update application configuration:**
+**5. Update application configuration:**
    ```bash
    vi src/main/resources/application.yml
    ```
@@ -123,7 +179,7 @@ sudo apt update
 
 ![image](https://github.com/user-attachments/assets/de99c150-6601-4997-8478-d5cee451b77f)
 
-**4. Update test configuration:**
+**6. Update test configuration:**
    ```bash
    vi src/test/resources/application.yml
    ```
@@ -132,7 +188,7 @@ sudo apt update
 ![image](https://github.com/user-attachments/assets/de99c150-6601-4997-8478-d5cee451b77f)
 
 
-**5. Update Java API configuration:**
+**7. Update Java API configuration:**
    ```bash
    vi src/main/java/com/opstree/microservice/salary/config/OpenAPIConfig.java
    ```
@@ -152,7 +208,7 @@ sudo apt update
      ```
 ![image](https://github.com/user-attachments/assets/9dfa0015-42e2-4f51-95ee-f15c7a6ad00f)
 
-**6. Update test configurations:**
+**8. Update test configurations:**
    ```bash
    sudo vi src/test/java/com/opstree/microservice/salary/config/OpenAPIConfigTests.java
    ```
