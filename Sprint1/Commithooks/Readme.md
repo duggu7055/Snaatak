@@ -1,4 +1,5 @@
 
+
 # Understanding of Commit Hooks
 
 <div align="center">
@@ -12,7 +13,7 @@
 
 | **Created**       | **Version** | **Last Modified** | **Author**        | **Level**            | **Reviewer**  |
 |--------------------|-------------|-------------------|-------------------|----------------------|---------------|
-|   26-04-2025      |   V1        |         |  Durgesh Sharma   | Internal review      | Pritam        |
+|   26-04-2025      |   V1        | 28-04-2025        |  Durgesh Sharma   | Internal review      | Pritam        |
 |   26-04-2025        |           |         |   Durgesh Sharma  | L0 Review            | Shreya Jaiswal|
 |   26-04-2025        |             |                   | Durgesh Sharma   | L1 Review            | Abhishek V    |
 |   26-04-2025       |             |                   |  Durgesh Sharma  | L2 Review            | Abhishek Dubey    |
@@ -25,9 +26,10 @@
 3. [Types of Commit Hooks](#types-of-commit-hooks)
 4. [How to Use Git Hooks](#how-to-use-git-hooks)
 5. [Feature](#feature)
-6. [Conclusion](#conclusion)
-7. [Contact Information](#contact-information)
-8. [References](#references)
+6. [FAQs](#faqs)
+7. [Conclusion](#conclusion)
+8. [Contact Information](#contact-information)
+9. [References](#references)
 
 ---
 
@@ -113,9 +115,30 @@ These hooks execute on the server hosting the Git repository and enforce rules a
 
 ---
 
+## FAQs
+
+#### 1. What are Git commit hooks?
+Git commit hooks are scripts that run automatically during various stages of the Git lifecycle (e.g., before a commit, after a commit). They help enforce rules, automate tasks, and maintain code quality.
+
+#### 2. How do commit hooks help with error prevention?
+By automating checks before and after commits, commit hooks can catch issues like coding errors, missing tests, or violations of code standards early, preventing them from entering the repository.
+
+#### 3. Can commit hooks be customized?
+Yes, commit hooks are highly customizable. Developers can write scripts for specific checks and tasks that suit the needs of their project, such as running linters or formatting code.
+
+#### 4. Do I need special permissions to use commit hooks?
+Yes, the hook scripts need to be executable. You can use the chmod +x command to give them the necessary permissions.
+
+#### 5. Can server-side hooks be used in collaboration with client-side hooks?
+Yes, server-side hooks can be used to enforce rules on the repository level, while client-side hooks allow developers to ensure code quality before it reaches the repository.
+
+---
+
 ## Conclusion
 
 Commit hooks enhance development by automating checks and enforcing standards during commits. They help catch errors early, improve code quality, and maintain workflow consistency, making them an essential tool for robust software development.
+
+---
 
 ## Contact Information
 
