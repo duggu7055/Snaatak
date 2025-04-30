@@ -57,8 +57,7 @@ The Salary API application have some database, cache manager and package depende
 
 # Architecture
 
-![logo](https://github.com/duggu7055/Snaatak/blob/main/salari-api/daigram.drawio%20(2).png
-)
+![logo](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiocVDwKCZV033uIzVooPBRi24a0V4YCkJOdgywwlei8P0alQzOxNAWWeNMG_fyZZK2QXf6CjH7cPnByUrpQUI5aP88Y1vBsjzp7KR_v0lwEnxLa9mI74ZRN_3UUznTguDiFBHDDdflbjTeq8jQvFdi_qRcu0uBnBjamZMg9fmmyi8_rCWVud23NJO1ncY/s16000/daigram.drawio%20(2).png)
 
 
 
@@ -82,7 +81,7 @@ The Salary API application have some database, cache manager and package depende
 
 > **Follow STEP 3**: [Update System Packages](https://github.com/snaatak-Downtime-Crew/Documentation/tree/main/common_stack/operating_system/ubuntu/sop/commoncommands).
 
-![image](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiocVDwKCZV033uIzVooPBRi24a0V4YCkJOdgywwlei8P0alQzOxNAWWeNMG_fyZZK2QXf6CjH7cPnByUrpQUI5aP88Y1vBsjzp7KR_v0lwEnxLa9mI74ZRN_3UUznTguDiFBHDDdflbjTeq8jQvFdi_qRcu0uBnBjamZMg9fmmyi8_rCWVud23NJO1ncY/s16000/daigram.drawio%20(2).png)
+
 
 
 
