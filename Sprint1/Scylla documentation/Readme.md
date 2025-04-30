@@ -95,12 +95,7 @@ ScyllaDB is chosen for its unique combination of performance, scalability, and c
 
 ## Important Ports
 
-| **Port** | **Description**                                                                 | **Purpose**                                  |
-|----------|---------------------------------------------------------------------------------|----------------------------------------------|
-| 7000     | Inter-node communication.                                                      | Used for communication between ScyllaDB nodes. |
-| 7001     | TLS inter-node communication.                                                  | Secure communication between ScyllaDB nodes. |
-| 9042     | Native CQL transport for client connections.                                   | Allows clients to connect using Cassandra Query Language (CQL). |
-| 9180     | Scylla REST API.                                                               | Used to interact with ScyllaDB via REST API calls. |
+- Follow the [link](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-88-Adil/ot-ms-understanding/scylladb/poc/README.md#important-ports) for the important ports of Scylladb.
 
 ---
 
