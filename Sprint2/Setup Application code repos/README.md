@@ -51,7 +51,7 @@ The OT-Microservices Project is a modular system designed to streamline organiza
      - [salary-api](https://github.com/Team-Downtime-Crew/salary-api)
    - **Description**: Add a brief description of the repository.
    - **Visibility**: Choose either **Public** or **Private**.
-   - Check **Initialize this repository with a README**.
+   - `Check` **Initialize this repository with a README**.
 4. Click **Create repository**.
 
    ![Screenshot 2024-12-01 at 10 13 27 PM](https://github.com/duggu7055/Snaatak/blob/main/imgs/Capture.PNG)
