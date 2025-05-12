@@ -17,7 +17,7 @@ This guide explains how to set up application code repositories in a Version Con
 
 1. [Introduction](#introduction)
 2. [Prerequisites](#prerequisites)
-3. [step-by-step setup guide](#step-by-step-setup-guide)
+3. [Step-By-Step Setup Guide](#step-by-step-setup-guide)
 4. [Decision-Making Process](#decision-making-process)
 5. [Conclusion](#conclusion)
 6. [Contact Information](#contact-information)
@@ -38,7 +38,7 @@ The OT-Microservices Project is a modular system designed to streamline organiza
 
 ---
 
-## Repos Setup
+## Step-By-Step Setup Guide
 
 1. Go to GitHub and log in to your account.
 2. Click the `+` icon in the top-right corner and select **New repository**.
