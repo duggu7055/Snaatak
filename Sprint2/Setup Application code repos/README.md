@@ -17,7 +17,7 @@ This guide explains how to set up application code repositories in a Version Con
 
 1. [Introduction](#introduction)
 2. [Prerequisites](#prerequisites)
-3. [Repos Setup](#repos-setup)
+3. [step-by-step setup guide](#step-by-step-setup-guide)
 4. [Decision-Making Process](#decision-making-process)
 5. [Conclusion](#conclusion)
 6. [Contact Information](#contact-information)
