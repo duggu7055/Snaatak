@@ -60,25 +60,7 @@ The OT-Microservices Project is a modular system designed to streamline organiza
 
 ## Decision-Making Process
 
-The choice to use a micro-repository structure for this project was guided by the following factors:
-
-1. **Modularity**:
-   - Each repository corresponds to a specific microservice or component, promoting independent development and deployment.
-   - Easier to maintain and scale individual services.
-
-2. **Collaboration**:
-   - Smaller, focused repositories enable different teams to work on individual components without stepping on each other’s toes.
-   - Clear repository boundaries reduce merge conflicts and improve code review efficiency.
-
-3. **Versioning and Dependency Management**:
-   - Independent repositories allow for precise version control and dependency isolation.
-   - Changes in one microservice do not inadvertently affect others.
-
-4. **Deployment Pipelines**:
-   - Separate repositories align well with CI/CD pipelines, allowing microservices to be built, tested, and deployed independently.
-
-5. **Best Practices**:
-   - The micro-repository approach aligns with industry best practices for microservices architecture.
+The decision to adopt a micro-repository structure for this project was based on insights from the [Conclusion document](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-133-Durgesh/vcs_design%20%2B%20poc/mono-micro%20repo/conclusion%20document/README.md)
 
    ![Screenshot 2024-12-01 at 10 13 27 PM](https://github.com/duggu7055/Snaatak/blob/main/imgs/Capture1.PNG)
 
