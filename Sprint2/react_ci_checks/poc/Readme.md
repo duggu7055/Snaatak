@@ -1,4 +1,4 @@
-# POC Of Static Code Analysis On React
+# POC : Static Code Analysis On React
 
 
 ## Author Information
@@ -70,7 +70,7 @@ This document provides a step-by-step guide for conducting a Proof of Concept (P
 
 >
 >  **To install and configure the sonarqube**  
-[Follow this document](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-157-Vardaan/application-ci/checks/java/static-code-analysis/poc/README.md) Upto Step 22
+[Follow this document](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-157-Vardaan/application-ci/checks/java/static-code-analysis/poc/README.md) 
 >   
 >
 > 
