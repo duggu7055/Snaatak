@@ -86,7 +86,7 @@ Static code analysis involves analyzing the source code or bytecode of a program
 
 ## Proof of Concept (POC)
  We are using Frontend for React static code analysis.
-Refer to the official POC documentation for complete steps: Static code analysis POC
+Refer to the official POC documentation for complete steps: [Static code analysis POC](https://github.com/duggu7055/Snaatak/blob/main/Sprint2/react_ci_checks/poc/Readme.md)
 
 ## Best Practices
 
