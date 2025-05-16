@@ -48,7 +48,7 @@ Static code analysis involves analyzing the source code or bytecode of a program
 ## Workflow Diagram
 
  <div align="center">
-    <img width="900" height="400" alt="Terraform" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiaXx1_eNcKkzndDIeC8GjlGlMMjgAqhE4sD1DZIxsjOOv33oJ15Xt-_QQFMlorzJT3X8tsAD3MqIC6JXJx8dQx-Zc9DX5SaUpmiNSqVWXGA7ovHfDtqZMAuIx03fm07H6FcaCihHLtbWV0ICLbUU3r23cfeNDXB40jDjO-tY7c1wMQc3c3B9d8yjlpOpA/s16000/diagram-export-5-16-2025-12_05_11-AM.png">
+    <img width="900" height="400" alt="Terraform" src="https://scm.thm.de/sonar/images/embed-doc/images/dev-cycle.png">
 </div>
 
   ---
