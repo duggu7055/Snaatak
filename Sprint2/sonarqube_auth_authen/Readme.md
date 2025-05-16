@@ -1,7 +1,7 @@
 # SonarQube Authentication and Authorization
 
 <div align="center">
-    <img width="900" height="400"  alt="Terraform" src="https://assets-eu-01.kc-usercontent.com/5dddefee-e8bb-013a-3b4e-7907971cf825/7f78d51b-7c1f-4c67-8f7f-c6f9e6188b1f/body-29699e0c-2fde-4d3f-b216-872c4f07c9ac_Diagram_A-1_Enterprise%2BReady_SC_Blog%25402x.png?w=2401&h=1629&auto=format&fit=crop">
+    <img width="900" height="300"  alt="Terraform" src="https://assets-eu-01.kc-usercontent.com/5dddefee-e8bb-013a-3b4e-7907971cf825/7f78d51b-7c1f-4c67-8f7f-c6f9e6188b1f/body-29699e0c-2fde-4d3f-b216-872c4f07c9ac_Diagram_A-1_Enterprise%2BReady_SC_Blog%25402x.png?w=2401&h=1629&auto=format&fit=crop">
 </div>
 
 ## Introduction
@@ -32,7 +32,11 @@ Authorization defines user access levels and actions within SonarQube through ro
 
 ## Workflow Diagram
 
-![image](https://assets-eu-01.kc-usercontent.com/b1eeb429-d9e0-0100-be87-468f6802040a/9f58222d-9ad1-4ae6-b1b8-e539574df4a6/saml-authentication-flow-diagram.png?w=1673&h=1298&auto=format&fit=crop)
+<div align="center">
+    <img width="900" height="400"  alt="Terraform" src="https://assets-eu-01.kc-usercontent.com/b1eeb429-d9e0-0100-be87-468f6802040a/9f58222d-9ad1-4ae6-b1b8-e539574df4a6/saml-authentication-flow-diagram.png?w=1673&h=1298&auto=format&fit=crop">
+</div>
+
+
 
 ---
 
@@ -107,7 +111,6 @@ Secure SonarQube by using centralized authentication methods like LDAP, SAML, or
 
 ---
 
-## References
 
 ## References
 
