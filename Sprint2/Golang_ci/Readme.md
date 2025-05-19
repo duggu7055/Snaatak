@@ -1,154 +1,109 @@
-# Golang CI Checks / Static Code Analysis
+# **Documentation and POC of DAST (Dynamic Application Security Testing) in Java CI Checks**
 
-<div align="center">
-    <img width="600" height="300"  alt="Terraform" src="https://san3ncrypt3d.com/images/2020-1-10-staticcode/static.png">
-</div>
+![image](https://github.com/user-attachments/assets/4aa0c132-1fbb-45bc-ad5f-2a631586676a)
 
 ---
 
-## Author Information
+## **Author Information**
 
 | **Created**       | **Version** | **Last Modified** | **Author**        | **Level**            | **Reviewer**  |
 |--------------------|-------------|-------------------|-------------------|----------------------|---------------|
-|       |           |         |  Durgesh Sharma   | Internal review      | Pritam        |
-|          |           |         |   Durgesh Sharma  | L0 Review            | Shreya Jaiswal|
-|         |             |                   | Durgesh Sharma   | L1 Review            | Abhishek V    |
-|          |             |                   |  Durgesh Sharma  | L2 Review            | Abhishek Dubey    |
-
-
----
-## Table of Contents
-
-1. [Introduction](#introduction)
-2. [What is Golang CI Checks / Static Code Analysis?](#what-is-golang-ci-checks--static-code-analysis)
-3. [Why Use Golang CI Checks / Static Code Analysis?](#why-use-golang-ci-checks--static-code-analysis)
-4. [Workflow Diagram](#workflow-diagram)
-5. [Different Tools for Golang Static Code Analysis](#different-tools-for-golang-static-code-analysis)
-6. [Comparison of Popular Tools](#comparison-of-popular-tools)
-7. [Advantages of Golang CI Checks / Static Analysis](#advantages-of-golang-ci-checks--static-analysis)
-8. [POC](#poc)
-9. [Best Practices](#best-practices)
-10. [Recommendation](#recommendation)
-11. [Conclusion](#conclusion)
-12. [Contact Information](#contact-information)
-13. [References](#references)
+|                   |             |                   | Durgesh Sharma    | Internal review      | Pritam        |
+|                   |             |                   | Durgesh Sharma    | L0 Review            | Shreya Jaiswal|
+|                   |             |                   | Durgesh Sharma    | L1 Review            | Abhishek V    |
+|                   |             |                   | Durgesh Sharma    | L2 Review            | Abhishek Dubey|
 
 ---
 
-## Introduction
+## **Table of Contents**
 
-This document provides an overview of Golang CI checks and static code analysis. It highlights their importance, explains common tools, workflows, and best practices, and offers guidance on maintaining high-quality, secure, and maintainable Go codebases.
-
----
-
-## What is Golang CI Checks / Static Code Analysis?
-
-Golang CI checks are automated processes in CI pipelines that analyze Go code for issues like bugs, style violations, and security vulnerabilities. Static code analysis examines source code against predefined rules to ensure code quality and consistency.
-
----
-
-## Why Use Golang CI Checks / Static Code Analysis?
-
-| Benefit                | Description                                                                      |
-|------------------------|----------------------------------------------------------------------------------|
-| **Early Bug Detection**| Identify potential bugs before runtime, reducing costly fixes later.             |
-| **Maintain Code Quality** | Enforce coding standards and best practices automatically.                    |
-| **Improve Security**   | Detect vulnerabilities like SQL injection, insecure usage patterns, etc.        |
-| **Enhance Collaboration** | Provide consistent feedback across teams to maintain a uniform codebase.     |
-| **Save Time**          | Automate repetitive code review tasks and focus on logic improvements.          |
+1. [**Introduction**](#introduction)
+2. [**What is DAST?**](#what-is-dast)
+3. [**Why DAST?**](#why-dast)
+4. [**Workflow of DAST**](#workflow-of-dast)
+5. [**Different Tools Used in DAST**](#different-tools-used-in-dast)
+6. [**Tool Comparison**](#tool-comparison)
+7. [**Advantages of DAST**](#advantages-of-dast)
+8. [**POC: DAST Using OWASP ZAP**](#poc-dast-using-owasp-zap)
+9. [**Best Practices**](#best-practices)
+10. [**Recommendation and Conclusion**](#recommendation-and-conclusion)
+11. [**Contact Information**](#contact-information)
+12. [**References**](#references)
 
 ---
 
-## Workflow Diagram
+## **Introduction**
+This document outlines Dynamic Application Security Testing (DAST) in Java CI pipelines, covering key concepts, tools, workflows, best practices, and a POC using OWASP ZAP.
 
+## **What is DAST?**
+Dynamic Application Security Testing (DAST) simulates attacks on a running web application to identify vulnerabilities. It evaluates the application from an external perspective, mimicking the approach of potential attackers.
 
----
+## **Why DAST?**
+| **Point**                           | **Explanation**                                                                 |
+|-------------------------------------|---------------------------------------------------------------------------------|
+| **Helps developers find security issues** | Identifies vulnerabilities early in the development process.                    |
+| **Catching problems early is cheaper** | Fixing issues early in the Software Development Life Cycle (SDLC) is cost-effective. |
+| **Unfound vulnerabilities lead to breaches** | Prevents data breaches and financial losses by uncovering vulnerabilities.       |
+| **Unchecked vulnerabilities damage reputation** | Protects a company’s reputation from the fallout of security lapses.             |
+| **DAST reduces human error**        | Mitigates mistakes during SDLC through automated testing.                       |
 
+## **Workflow of DAST**
 
-## Different Tools for Golang Static Code Analysis
-
-| Tool           | Purpose                        | Features                                      | Integration                  |
-|----------------|--------------------------------|----------------------------------------------|------------------------------|
-| **golangci-lint** | Aggregated linter tool          | Supports multiple linters, fast parallel run | CI/CD pipelines, Git hooks   |
-| **govet**       | Reports suspicious constructs   | Part of Go toolchain                          | Built-in, CLI                |
-| **staticcheck** | Advanced static analysis         | Detects bugs, performance, and style issues  | CLI, CI                     |
-| **errcheck**    | Check for unchecked errors      | Finds ignored error return values             | CLI                         |
-| **gosec**       | Security analysis tool          | Detects security issues and common pitfalls   | CLI, CI                     |
-
----
-
-## Comparison of Popular Tools
-
-| Tool           | Speed       | Coverage                | Security Focus | Ease of Use       |
-|----------------|-------------|------------------------|----------------|-------------------|
-| **golangci-lint**  | Very fast   | Very broad (multi-linter) | Medium         | Easy (configurable)|
-| **govet**          | Fast        | Moderate                | Low            | Very easy (builtin)|
-| **staticcheck**    | Moderate    | High                    | Low            | Moderate           |
-| **errcheck**       | Fast        | Narrow (error checks)   | Low            | Easy               |
-| **gosec**          | Moderate    | Narrow (security only)  | High           | Moderate           |
+![Workflow Diagram](https://xebia.com/wp-content/uploads/2023/02/HowDastWorks-1024x386.png.webp)
 
 ---
 
-## Advantages of Golang CI Checks / Static Analysis
+## **Different Tools Used in DAST**
+| **Tool Name**                | **Description**                                                                 | **Features**                                                  |
+|------------------------------|---------------------------------------------------------------------------------|----------------------------------------------------------------|
+| **OWASP ZAP**                 | Open-source security testing tool.                                              | Automated scanners, vulnerability detection, active and passive scanning. |
+| **Burp Suite**                | Comprehensive platform for web application security testing.                    | Intercepting proxy, vulnerability scanning, custom extensions.   |
+| **Acunetix**                  | Automated security scanner for web applications.                                | Detects SQL injection, XSS, and other vulnerabilities.            |
+| **AppSpider**                 | Dynamic application security testing tool.                                      | Scanning for Java frameworks, automated vulnerability discovery. |
 
-| Advantage       | Description                                                   |
-|-----------------|---------------------------------------------------------------|
-| **Consistency** | Enforce uniform coding styles and patterns.                   |
-| **Quality**     | Improve code robustness and maintainability.                  |
-| **Automation**  | Reduce manual code review efforts.                            |
-| **Security**    | Identify vulnerabilities early.                               |
-| **Faster Feedback** | Immediate insights during development cycles.             |
+## **Tool Comparison**
+| **Tool Name**   | **Cost**      | **Ease of Use** | **Features**               | **Customization**   |
+|-----------------|---------------|-----------------|----------------------------|----------------------|
+| OWASP ZAP       | Free          | Moderate        | Basic and essential scans  | High                 |
+| Burp Suite      | Expensive     | High            | Comprehensive tools        | High                 |
+| Acunetix        | Expensive     | Easy            | Broad vulnerability scans  | Moderate             |
+| AppSpider       | High          | Moderate        | Java-specific capabilities | High                 |
 
----
+## **Advantages of DAST**
+| **Advantage**                 | **Description**                                                              |
+|-------------------------------|------------------------------------------------------------------------------|
+| **Real-time vulnerability detection** | Identifies issues during the application’s runtime.                          |
+| **Simulates real-world attacks**       | Mimics hacker techniques to expose weaknesses.                              |
+| **Supports CI/CD integration**         | Integrates with pipelines to ensure ongoing security.                      |
+| **Risk reduction**                     | Reduces the likelihood of breaches and ensures compliance with standards.  |
 
-## POC
- We are using employee API for Golang static code analysis.
-Refer to the official POC documentation for complete steps: [Static code analysis POC](https://github.com/duggu7055/Snaatak/blob/main/Sprint2/react_ci_checks/poc/Readme.md)
-
----
-
-## Best Practices
-
-| Best Practice       | Description                                                                 |
-|---------------------|-----------------------------------------------------------------------------|
-| **Integrate early** | Add static analysis in the earliest stages of CI/CD pipelines.             |
-| **Use aggregated tools** | Tools like `golangci-lint` combine multiple linters for comprehensive checks. |
-| **Customize rules** | Tailor linting rules to your team’s coding standards.                      |
-| **Fail fast**       | Configure pipelines to fail on critical issues.                            |
-| **Review reports**  | Regularly analyze linter reports to improve coding practices.              |
-| **Keep tools updated** | Ensure linters and rulesets stay current with Go ecosystem changes.      |
-| **Balance strictness** | Avoid over-strict rules that cause false positives and developer fatigue.|
+## **POC: DAST Using OWASP ZAP**
 
 ---
-
-## Recommendation
-
-For comprehensive static code analysis in Golang projects, use `golangci-lint`. It combines multiple linters, runs fast in parallel, and integrates seamlessly into CI/CD pipelines. Its ease of configuration and wide coverage make it a versatile choice for enforcing coding standards and detecting issues.
-
----
-## Conclusion
-
-Integrating Golang CI checks and static code analysis ensures a high-quality, secure, and maintainable codebase. Automating these checks in CI pipelines provides immediate feedback, reduces manual effort, and fosters a strong culture of code quality. Embracing tools and best practices can significantly enhance team productivity and software reliability.
 
 
 
 ---
 
-## Contact Information
+## **Best Practices**
+| **Best Practice**                         | **Description**                                                                |
+|------------------------------------------|--------------------------------------------------------------------------------|
+| **Define clear testing scope**            | Ensure only relevant parts of the application are tested.                     |
+| **Integrate into CI/CD pipelines**        | Automate security testing for consistent evaluations.                         |
+| **Regularly update tools**                | Use the latest updates to address emerging threats.                           |
+| **Test in staging environments**          | Avoid disrupting production with security scans.                              |
+| **Combine with other AST techniques**     | Use SAST and IAST along with DAST for comprehensive security coverage.        |
 
+## **Recommendation and Conclusion**
+For this project, **OWASP ZAP** is recommended due to its open-source nature, extensive community support, and suitability for Java applications. Its features and cost-effectiveness make it an ideal choice for initial and ongoing security testing.
+
+## **Contact Information**
 | **Name**           | **Email Address**                              |
 |---------------------|-----------------------------------------------|
 | Durgesh Sharma      | durgesh.sharma.snaatak@mygurukulam.co         |
 
----
-
-## References
-
-| Resource                     | Link                                                            |
-|------------------------------|-----------------------------------------------------------------|
-| **golangci-lint Official Site** | [https://golangci-lint.run/](https://golangci-lint.run/)       |
-| **Go Vet Documentation**      | [https://pkg.go.dev/cmd/vet](https://pkg.go.dev/cmd/vet)       |
-| **Staticcheck Documentation** | [https://staticcheck.io/](https://staticcheck.io/)             |
-| **Gosec Security Analyzer**   | [https://github.com/securego/gosec](https://github.com/securego/gosec) |
-| **Effective Go**              | [https://golang.org/doc/effective_go.html](https://golang.org/doc/effective_go.html) |
-| **Go Blog - Code Review Comments** | [https://go.dev/blog/code-review-comments](https://go.dev/blog/code-review-comments) |
+## **References**
+| **Link** | **Description** |
+|------------------------------------------------------|------------------|
+| https://www.ibm.com/topics/dynamic-application-security-testing| DAST and types |
+| https://www.techmagic.co/blog/dast| DAST tool |
