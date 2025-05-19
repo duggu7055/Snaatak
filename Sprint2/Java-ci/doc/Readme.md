@@ -48,8 +48,8 @@ Dynamic Application Security Testing (DAST) simulates attacks on a running web a
 | **DAST reduces human error**        | Mitigates mistakes during SDLC through automated testing.                       |
 
 ## **Workflow of DAST**
-
-![Workflow Diagram](https://xebia.com/wp-content/uploads/2023/02/HowDastWorks-1024x386.png.webp)
+---
+ ![image](https://xebia.com/wp-content/uploads/2023/02/HowDastWorks-1024x386.png.webp)
 
 ---
 
@@ -81,6 +81,7 @@ Dynamic Application Security Testing (DAST) simulates attacks on a running web a
 
 ---
 
+![Follow this document for POC](https://xebia.com/wp-content/uploads/2023/02/HowDastWorks-1024x386.png.webp)
 
 
 ---
