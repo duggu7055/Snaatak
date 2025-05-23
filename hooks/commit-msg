@@ -1,0 +1,16 @@
+#!/bin/bash
+#pre-commit hook with jira
+
+# Regex to match JIRA ticket format (e.g., PROJ-1234)
+JIRA_REGEX='[A-Z]+-[0-9]+'
+
+# Read the commit message
+COMMIT_MSG=$(cat "$1")
+
+if ! [[ $COMMIT_MSG =~ $JIRA_REGEX ]]; then
+  echo -e "\\033[31mERROR: Commit message must include a valid JIRA ticket (e.g., PROJ-1234).\\033[0m"
+  exit 1
+fi
+
+exit 0
+
