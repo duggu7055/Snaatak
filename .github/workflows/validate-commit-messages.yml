@@ -1,0 +1,31 @@
+name: Validate Commit Messages
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  validate-commits:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Validate Commit Messages
+        run: |
+          # Get commit messages in the PR
+          commits=$(git log --oneline origin/main..HEAD)
+          
+          # Regex for JIRA issue key
+          jira_regex="^[A-Z]+-[0-9]+"
+
+          # Validate each commit message
+          echo "$commits" | while read -r commit; do
+            message=$(echo "$commit" | awk '{$1=""; print substr($0, 2)}')
+            if ! echo "$message" | grep -Eq "$jira_regex"; then
+              echo "Invalid commit message: $message"
+              echo "Commit messages must include a valid JIRA issue key (e.g., PROJECT-123)."
+              exit 1
+            fi
+          done
