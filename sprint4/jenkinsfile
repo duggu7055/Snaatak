@@ -12,35 +12,21 @@ pipeline {
     environment {
         CREDS_ID = 'yuvraj-git'
     }
-    steps {
-        script {
-            // Stage: Workspace Cleanup
-            stage('Workspace Cleanup') {
-                def wsClean = new org.downtimecrew.common.wsClean()
-                wsClean.call()
-            }
-            
-            // Stage: Git Checkout
-            stage('Git Checkout') {
-                def gitCheckOut = new org.downtimecrew.common.gitCheckOut()
-                gitCheckOut.call(params.BRANCH, params.URL, env.CREDS_ID)
-            }
-            
-            // Stage: Install Dependencies
-            stage('Install Dependencies') {
-                def installDependencies = new org.downtimecrew.reactSCA.installDependencies()
-                installDependencies.call()
-            }
-            
-            // Stage: Run SonarQube Analysis
-            stage('SonarQube Analysis') {
-                def runSonarQubeAnalysis = new org.downtimecrew.reactSCA.runSonarQubeAnalysis()
-                runSonarQubeAnalysis.call(
-                    params.PROJECT_KEY,
-                    params.SONAR_URL,
-                    params.SONAR_SOURCES,
-                    params.SONAR_TOKEN
-                )
+    stages {
+        stage('Run SonarQube Analysis') {
+            steps {
+                script {
+                    def reactSCA = new org.downtimecrew.template.reactSCA.reactSCA()
+                    reactSCA.call(
+                        params.BRANCH,
+                        params.URL,
+                        env.CREDS_ID,
+                        params.PROJECT_KEY,
+                        params.SONAR_URL,
+                        params.SONAR_SOURCES,
+                        params.SONAR_TOKEN
+                    )
+                }
             }
         }
     }
