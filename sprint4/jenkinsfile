@@ -10,7 +10,7 @@ pipeline {
         string(name: 'SONAR_TOKEN', defaultValue: 'durgesh-sonar', description: 'SonarQube Authentication Token')
     }
     environment {
-        CREDS_ID = yuvraj-git'
+        CREDS_ID = 'yuvraj-git'
     }
     stages {
         stage('Run SonarQube Analysis') {
