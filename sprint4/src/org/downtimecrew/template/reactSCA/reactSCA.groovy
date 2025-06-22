@@ -7,7 +7,7 @@ def call(String branch, String url, String creds, String projectKey, String sona
     def gitCheckOut = new gitCheckOut()
     def wsClean = new wsClean()
     def installDependencies = new installDependencies()
-    def RunSonarQubeAnalysis = new RunSonarQubeAnalysis()
+    def runSonarQubeAnalysis = new runSonarQubeAnalysis()
 
     wsClean.call()
     gitCheckOut.call(branch, url, creds)
