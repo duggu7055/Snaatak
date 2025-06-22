@@ -6,7 +6,7 @@ import org.downtimecrew.reactSCA.*
 def call(String branch, String url, String creds, String projectKey, String sonarUrl, String sonarSources, String sonarToken) {
     def gitCheckOut = new gitCheckOut()
     def wsClean = new wsClean()
-    def installDependencies = new InstallDependencies()
+    def installDependencies = new installDependencies()
     def runSonarQubeAnalysis = new RunSonarQubeAnalysis()
 
     wsClean.call()
