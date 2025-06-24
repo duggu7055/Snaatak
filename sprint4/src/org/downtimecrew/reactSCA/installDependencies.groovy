@@ -1,8 +1,7 @@
 package org.downtimecrew.reactSCA
 
-def call() {
-    stage('Install Dependencies') {
-        sh 'npm install'
+def call(Map config = [:]) {
+    stage(config.stageName ?: 'Install Dependencies') {
+        sh config.installCommand ?: 'npm install'
     }
 }
-
