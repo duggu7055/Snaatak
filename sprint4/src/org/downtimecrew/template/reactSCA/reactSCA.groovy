@@ -9,7 +9,6 @@ def call(Map config = [:]) {
     def installDependencies = new installDependencies()
     def auditFix = new auditFix()
     def runSonarQubeAnalysis = new runSonarQubeAnalysis()
-    def notify = new notify()
 
     try {
         wsClean.call()
