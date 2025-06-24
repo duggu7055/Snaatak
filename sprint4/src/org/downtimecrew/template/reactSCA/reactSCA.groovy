@@ -29,9 +29,13 @@ def call(Map config = [:]) {
             sonarUrl: config.sonarUrl,
             sonarSources: config.sonarSources,
             sonarCredentialId: config.sonarCredsId,
-            sonarScannerPath: config.sonarScannerPath,
-            lcovPath: config.lcovPath
+            sonarScannerPath: config.sonarScannerPath
         ])
+
+        // Generate dynamic report links
+        def reportLinks = [
+            [name: 'SonarQube Report', url: "${config.sonarUrl}/dashboard?id=${config.sonarProjectKey}"]
+        ]
 
         notify.sendNotification([
             status: 'SUCCESS',
@@ -39,9 +43,14 @@ def call(Map config = [:]) {
             slackChannel: config.slackChannel ?: '#general',
             slackCredId: config.slackCredId ?: 'default-slack-cred',
             emailTo: config.emailTo ?: 'team@example.com',
-            reportLinks: config.reportLinks ?: []
+            reportLinks: reportLinks
         ], this)
     } catch (Exception e) {
+        // Generate dynamic report links
+        def reportLinks = [
+            [name: 'SonarQube Report', url: "${config.sonarUrl}/dashboard?id=${config.sonarProjectKey}"]
+        ]
+
         notify.sendNotification([
             status: 'FAILURE',
             buildTrigger: env.BUILD_USER ?: 'Unknown',
@@ -50,7 +59,7 @@ def call(Map config = [:]) {
             slackChannel: config.slackChannel ?: '#general',
             slackCredId: config.slackCredId ?: 'default-slack-cred',
             emailTo: config.emailTo ?: 'team@example.com',
-            reportLinks: config.reportLinks ?: []
+            reportLinks: reportLinks
         ], this)
         throw e
     }
