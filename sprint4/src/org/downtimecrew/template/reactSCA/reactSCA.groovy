@@ -9,6 +9,7 @@ def call(Map config = [:]) {
     def installDependencies = new installDependencies()
     def auditFix = new auditFix()
     def runSonarQubeAnalysis = new runSonarQubeAnalysis()
+    def notify = new org.downtimecrew.common.notify() // Explicitly import notify.groovy
 
     try {
         wsClean.call()
@@ -32,18 +33,16 @@ def call(Map config = [:]) {
             lcovPath: config.lcovPath
         ])
 
-        // Send success notification
-        sendNotification([
+        notify.sendNotification([
             status: 'SUCCESS',
             buildTrigger: env.BUILD_USER ?: 'Unknown',
             slackChannel: config.slackChannel ?: '#general',
             slackCredId: config.slackCredId ?: 'default-slack-cred',
             emailTo: config.emailTo ?: 'team@example.com',
             reportLinks: config.reportLinks ?: []
-        ], steps)
+        ], this)
     } catch (Exception e) {
-        // Send failure notification
-        sendNotification([
+        notify.sendNotification([
             status: 'FAILURE',
             buildTrigger: env.BUILD_USER ?: 'Unknown',
             failureReason: e.message,
@@ -52,7 +51,7 @@ def call(Map config = [:]) {
             slackCredId: config.slackCredId ?: 'default-slack-cred',
             emailTo: config.emailTo ?: 'team@example.com',
             reportLinks: config.reportLinks ?: []
-        ], steps)
+        ], this)
         throw e
     }
 }
