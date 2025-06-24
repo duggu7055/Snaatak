@@ -39,11 +39,4 @@ node {
             emailTo: env.EMAIL_TO,
             reportLinks: reportLinks
         ])
-    } catch (Exception e) {
-        currentBuild.result = 'FAILURE'
-        error "Pipeline failed: ${e.message}"
-    } finally {
-        // Post-build actions or notifications if needed
-        println("Build completed with status: ${currentBuild.result}")
-    }
-}
+    } 
