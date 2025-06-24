@@ -9,17 +9,10 @@ node {
     env.SONAR_PROJECT_KEY = 'ReactSCA-Project'
     env.SONAR_SOURCES = 'src'
     env.SONAR_SCANNER_PATH = '/opt/sonar-scanner/bin/sonar-scanner'
-    env.LCOV_PATH = 'coverage/lcov.info'
     env.SONAR_URL = 'http://192.168.10.184:9000' // SonarQube URL
     env.SLACK_CHANNEL = 'react-notification'
     env.SLACK_CRED_ID = 'downtime-crew'
     env.EMAIL_TO = 'ds705589@gmail.com'
-
-    // Generate dynamic report links
-    def reportLinks = [
-        [name: 'SonarQube Report', url: "${env.SONAR_URL}/dashboard?id=${env.SONAR_PROJECT_KEY}"],
-        [name: 'Coverage Report', url: "${env.BUILD_URL}/artifact/coverage/index.html"]
-    ]
 
     // Run React SCA Analysis
     def reactSCA = new org.downtimecrew.template.reactSCA.reactSCA()
@@ -32,10 +25,8 @@ node {
         sonarProjectKey: env.SONAR_PROJECT_KEY,
         sonarSources: env.SONAR_SOURCES,
         sonarScannerPath: env.SONAR_SCANNER_PATH,
-        lcovPath: env.LCOV_PATH,
         slackChannel: env.SLACK_CHANNEL,
         slackCredId: env.SLACK_CRED_ID,
-        emailTo: env.EMAIL_TO,
-        reportLinks: reportLinks
+        emailTo: env.EMAIL_TO
     ])
 }
