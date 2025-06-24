@@ -49,7 +49,6 @@ def call(Map config = [:]) {
             slackChannel: config.slackChannel ?: '#general',
             slackCredId: config.slackCredId ?: 'default-slack-cred',
             emailTo: config.emailTo ?: 'team@example.com',
-            emailCredId: config.emailCredId ?: 'default-email-cred',
             reportLinks: config.reportLinks ?: []
         ])
     } catch (Exception e) {
@@ -62,7 +61,6 @@ def call(Map config = [:]) {
             slackChannel: config.slackChannel ?: '#general',
             slackCredId: config.slackCredId ?: 'default-slack-cred',
             emailTo: config.emailTo ?: 'team@example.com',
-            emailCredId: config.emailCredId ?: 'default-email-cred',
             reportLinks: config.reportLinks ?: []
         ])
         throw e
