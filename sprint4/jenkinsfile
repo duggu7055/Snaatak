@@ -2,7 +2,7 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'URL', defaultValue: 'https://github.com/snaatak-Downtime-Crew/frontend-api.git', description: 'Git Repository URL')
+        string(name: 'URL', defaultValue: 'https://github.com/duggu7055/Snaatak.git', description: 'Git Repository URL')
         string(name: 'BRANCH', defaultValue: 'main', description: 'Branch to build')
         string(name: 'PROJECT_KEY', defaultValue: 'ReactSCA-Project', description: 'SonarQube Project Key')
         string(name: 'SONAR_URL', defaultValue: 'http://192.168.10.184:9000', description: 'SonarQube Server URL')
@@ -13,18 +13,20 @@ pipeline {
         CREDS_ID = 'yuvraj-git'
     }
     stages {
-        steps {
-            script {
-                def reactSCA = new org.downtimecrew.template.reactSCA.reactSCA()
-                reactSCA.call(
-                    params.BRANCH,
-                    params.URL,
-                    env.CREDS_ID,
-                    params.PROJECT_KEY,
-                    params.SONAR_URL,
-                    params.SONAR_SOURCES,
-                    params.SONAR_TOKEN
-                )
+        stage('Run SonarQube Analysis') { // Stage name must be provided
+            steps {
+                script {
+                    def reactSCA = new org.downtimecrew.template.reactSCA.reactSCA()
+                    reactSCA.call(
+                        params.BRANCH,
+                        params.URL,
+                        env.CREDS_ID,
+                        params.PROJECT_KEY,
+                        params.SONAR_URL,
+                        params.SONAR_SOURCES,
+                        params.SONAR_TOKEN
+                    )
+                }
             }
         }
     }
