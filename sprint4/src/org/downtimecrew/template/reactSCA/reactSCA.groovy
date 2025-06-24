@@ -9,7 +9,6 @@ def call(Map config = [:]) {
     def installDependencies = new installDependencies()
     def auditFix = new auditFix()
     def runSonarQubeAnalysis = new runSonarQubeAnalysis()
-    def notify = new Notification(this.steps) // Pass 'steps' object here
 
     try {
         wsClean.call()
@@ -33,17 +32,16 @@ def call(Map config = [:]) {
             lcovPath: config.lcovPath
         ])
 
-        notify.call([
+        notify([
             status: 'SUCCESS',
             buildTrigger: env.BUILD_USER ?: 'Unknown',
             slackChannel: config.slackChannel ?: '#general',
             slackCredId: config.slackCredId ?: 'default-slack-cred',
             emailTo: config.emailTo ?: 'team@example.com',
-            emailCredId: config.emailCredId ?: 'default-email-cred',
             reportLinks: config.reportLinks ?: []
-        ])
+        ], steps)
     } catch (Exception e) {
-        notify.call([
+        notify([
             status: 'FAILURE',
             buildTrigger: env.BUILD_USER ?: 'Unknown',
             failureReason: e.message,
@@ -51,9 +49,8 @@ def call(Map config = [:]) {
             slackChannel: config.slackChannel ?: '#general',
             slackCredId: config.slackCredId ?: 'default-slack-cred',
             emailTo: config.emailTo ?: 'team@example.com',
-            emailCredId: config.emailCredId ?: 'default-email-cred',
             reportLinks: config.reportLinks ?: []
-        ])
+        ], steps)
         throw e
     }
 }
