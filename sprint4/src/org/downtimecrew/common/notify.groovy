@@ -60,5 +60,3 @@ ${!isSuccess ? "*Failure Reason:* ${failureReason}\n*Failed Stage:* ${failedStag
     // Send Slack Notification
     steps.slackSend(channel: slackChannel, color: color, message: slackMsg, tokenCredentialId: slackCredId)
 }
-
-return this
