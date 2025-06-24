@@ -39,4 +39,5 @@ node {
             emailTo: env.EMAIL_TO,
             reportLinks: reportLinks
         ])
-    } 
+    }
+}
