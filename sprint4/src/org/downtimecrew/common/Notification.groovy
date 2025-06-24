@@ -1,11 +1,18 @@
 package org.downtimecrew.common
 
-def call(Map config = [:]) {
-    script {
+class Notification {
+    def steps
+
+    // Updated constructor to accept a 'steps' object
+    Notification(steps) {
+        this.steps = steps
+    }
+
+    def call(Map config = [:]) {
         def status = config.status ?: env.BUILD_STATUS ?: 'UNKNOWN'
-        def buildTrigger = config.buildTrigger ?: env.BUILD_USER ?: 'Unknown'
+        def buildTrigger = config.buildTrigger ?: 'Unknown'
         def failureReason = config.failureReason ?: 'Not Specified'
-        def failedStage = config.failedStage ?: env.STAGE_NAME ?: 'Not Specified'
+        def failedStage = config.failedStage ?: 'Not Specified'
         def slackChannel = config.slackChannel ?: '#default-channel'
         def slackCredId = config.slackCredId ?: 'default-slack-cred-id'
         def emailTo = config.emailTo ?: 'default@example.com'
@@ -15,7 +22,6 @@ def call(Map config = [:]) {
         def color = isSuccess ? 'good' : 'danger'
         def now = new Date().format("yyyy-MM-dd HH:mm:ss", TimeZone.getTimeZone('Asia/Kolkata'))
 
-        // Prepare Slack Message
         def slackMsg = """*Build #${env.BUILD_NUMBER} - ${status}*
 *Job:* `${env.JOB_NAME}`
 *Triggered by:* ${buildTrigger}
@@ -29,10 +35,8 @@ ${!isSuccess ? "*Failure Reason:* ${failureReason}\n*Failed Stage:* ${failedStag
             }
         }
 
-        // Prepare Email Subject
         def emailSubject = "${status}: ${env.JOB_NAME} #${env.BUILD_NUMBER}"
 
-        // Prepare Email Body
         def emailBody = """
 <html>
   <body>
@@ -62,28 +66,10 @@ ${!isSuccess ? "*Failure Reason:* ${failureReason}\n*Failed Stage:* ${failedStag
 
         emailBody += "</body></html>"
 
-        // Send Email Notification
-        try {
-            steps.mail(
-                to: emailTo,
-                subject: emailSubject,
-                body: emailBody,
-                mimeType: 'text/html'
-            )
-        } catch (Exception e) {
-            echo "Failed to send email notification: ${e.message}"
-        }
+        // Send Email
+        steps.mail(to: emailTo, subject: emailSubject, body: emailBody, mimeType: 'text/html')
 
         // Send Slack Notification
-        try {
-            steps.slackSend(
-                channel: slackChannel,
-                color: color,
-                message: slackMsg,
-                tokenCredentialId: slackCredId
-            )
-        } catch (Exception e) {
-            echo "Failed to send Slack notification: ${e.message}"
-        }
+        steps.slackSend(channel: slackChannel, color: color, message: slackMsg, tokenCredentialId: slackCredId)
     }
 }
