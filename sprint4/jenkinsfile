@@ -1,26 +1,25 @@
 @Library('React_SCA_Library') _
 node {
-    // Parameters
-    def URL = 'https://github.com/duggu7055/Snaatak.git'
-    def BRANCH = 'main'
-    def PROJECT_KEY = 'ReactSCA-Project'
-    def SONAR_URL = 'http://192.168.10.184:9000'
-    def SONAR_SOURCES = 'src'
-    def SONAR_TOKEN = 'durgesh-sonar'
-    def CREDS_ID = 'yuvraj-git'
+    // Define pipeline parameters
+    env.GIT_BRANCH = 'main'
+    env.GIT_REPO_URL = 'https://github.com/duggu7055/Snaatak.git'
+    env.GIT_CREDS_ID = 'yuvraj-git'
+    env.SONAR_CRED_ID = 'durgesh-sonar'
+    env.SONAR_PROJECT_KEY = 'ReactSCA-Project'
+    env.SONAR_SOURCES = 'src'
+    env.SONAR_SCANNER_PATH = '/opt/sonar-scanner/bin/sonar-scanner'
+    env.LCOV_PATH = 'coverage/lcov.info'
 
-    // Steps
-    checkout scm // Example of checking out the code
-    echo "Starting SonarQube analysis for branch: ${BRANCH}"
-
+    // Call the shared library's main function
     def reactSCA = new org.downtimecrew.template.reactSCA.reactSCA()
-    reactSCA.call(
-        BRANCH,
-        URL,
-        CREDS_ID,
-        PROJECT_KEY,
-        SONAR_URL,
-        SONAR_SOURCES,
-        SONAR_TOKEN
-    )
+    reactSCA.call([
+        gitBranch: env.GIT_BRANCH,
+        gitRepoUrl: env.GIT_REPO_URL,
+        gitCredsId: env.GIT_CREDS_ID,
+        sonarCredsId: env.SONAR_CRED_ID,
+        sonarProjectKey: env.SONAR_PROJECT_KEY,
+        sonarSources: env.SONAR_SOURCES,
+        sonarScannerPath: env.SONAR_SCANNER_PATH,
+        lcovPath: env.LCOV_PATH
+    ])
 }
