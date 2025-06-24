@@ -1,33 +1,26 @@
 @Library('React_SCA_Library') _
-pipeline {
-    agent any
-    parameters {
-        string(name: 'URL', defaultValue: 'https://github.com/duggu7055/Snaatak.git', description: 'Git Repository URL')
-        string(name: 'BRANCH', defaultValue: 'main', description: 'Branch to build')
-        string(name: 'PROJECT_KEY', defaultValue: 'ReactSCA-Project', description: 'SonarQube Project Key')
-        string(name: 'SONAR_URL', defaultValue: 'http://192.168.10.184:9000', description: 'SonarQube Server URL')
-        string(name: 'SONAR_SOURCES', defaultValue: 'src', description: 'Path to Source Code for Analysis')
-        string(name: 'SONAR_TOKEN', defaultValue: 'durgesh-sonar', description: 'SonarQube Authentication Token')
-    }
-    environment {
-        CREDS_ID = 'yuvraj-git'
-    }
-    stages {
-        stage('Run SonarQube Analysis') { // Stage name must be provided
-            steps {
-                script {
-                    def reactSCA = new org.downtimecrew.template.reactSCA.reactSCA()
-                    reactSCA.call(
-                        params.BRANCH,
-                        params.URL,
-                        env.CREDS_ID,
-                        params.PROJECT_KEY,
-                        params.SONAR_URL,
-                        params.SONAR_SOURCES,
-                        params.SONAR_TOKEN
-                    )
-                }
-            }
-        }
-    }
+node {
+    // Parameters
+    def URL = 'https://github.com/duggu7055/Snaatak.git'
+    def BRANCH = 'main'
+    def PROJECT_KEY = 'ReactSCA-Project'
+    def SONAR_URL = 'http://192.168.10.184:9000'
+    def SONAR_SOURCES = 'src'
+    def SONAR_TOKEN = 'durgesh-sonar'
+    def CREDS_ID = 'yuvraj-git'
+
+    // Steps
+    checkout scm // Example of checking out the code
+    echo "Starting SonarQube analysis for branch: ${BRANCH}"
+
+    def reactSCA = new org.downtimecrew.template.reactSCA.reactSCA()
+    reactSCA.call(
+        BRANCH,
+        URL,
+        CREDS_ID,
+        PROJECT_KEY,
+        SONAR_URL,
+        SONAR_SOURCES,
+        SONAR_TOKEN
+    )
 }
