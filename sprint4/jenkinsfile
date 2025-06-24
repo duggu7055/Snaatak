@@ -11,7 +11,7 @@ node {
         env.SONAR_SOURCES = 'src'
         env.SONAR_SCANNER_PATH = '/opt/sonar-scanner/bin/sonar-scanner'
         env.LCOV_PATH = 'coverage/lcov.info'
-        env.SONAR_URL = 'http://sonarqube.example.com' // SonarQube URL
+        env.SONAR_URL = 'http://192.168.10.184:9000' // SonarQube URL
         env.SLACK_CHANNEL = 'react-notifications'
         env.SLACK_CRED_ID = 'downtime-crew'
         env.EMAIL_TO = 'ds705589@gmail.com'
