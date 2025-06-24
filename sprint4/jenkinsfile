@@ -13,26 +13,19 @@ pipeline {
         CREDS_ID = 'yuvraj-git'
     }
     stages {
-        stage('Run SonarQube Analysis') {
-            steps {
-                script {
-                    def reactSCA = new org.downtimecrew.template.reactSCA.reactSCA()
-                    reactSCA.call(
-                        params.BRANCH,
-                        params.URL,
-                        env.CREDS_ID,
-                        params.PROJECT_KEY,
-                        params.SONAR_URL,
-                        params.SONAR_SOURCES,
-                        params.SONAR_TOKEN
-                    )
-                }
+        steps {
+            script {
+                def reactSCA = new org.downtimecrew.template.reactSCA.reactSCA()
+                reactSCA.call(
+                    params.BRANCH,
+                    params.URL,
+                    env.CREDS_ID,
+                    params.PROJECT_KEY,
+                    params.SONAR_URL,
+                    params.SONAR_SOURCES,
+                    params.SONAR_TOKEN
+                )
             }
-        }
-    }
-    post {
-        always {
-            cleanWs()
         }
     }
 }
