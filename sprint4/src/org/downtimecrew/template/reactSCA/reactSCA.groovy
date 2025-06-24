@@ -32,7 +32,7 @@ def call(Map config = [:]) {
             lcovPath: config.lcovPath
         ])
 
-        notify([
+        notify.sendNotification([
             status: 'SUCCESS',
             buildTrigger: env.BUILD_USER ?: 'Unknown',
             slackChannel: config.slackChannel ?: '#general',
@@ -41,7 +41,7 @@ def call(Map config = [:]) {
             reportLinks: config.reportLinks ?: []
         ], steps)
     } catch (Exception e) {
-        notify([
+        notify.sendNotification([
             status: 'FAILURE',
             buildTrigger: env.BUILD_USER ?: 'Unknown',
             failureReason: e.message,
