@@ -1,4 +1,4 @@
-@Library('React_SCA_Library') _
+@Library('shivani-shared-library@main') _
 pipeline {
     agent any
     parameters {
