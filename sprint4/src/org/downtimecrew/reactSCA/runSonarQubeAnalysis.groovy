@@ -9,7 +9,7 @@ def call(Map config = [:]) {
                 -Dsonar.sources=${config.sonarSources ?: env.SONAR_SOURCES ?: 'src'} \
                 -Dsonar.javascript.lcov.reportPaths=${config.lcovPath ?: env.LCOV_PATH ?: 'coverage/lcov.info'} \
                 -Dsonar.login=$SONARQUBE_AUTH_TOKEN \
-                -Dsonar.host.url=${config.sonarUrl ?: env.SONAR_HOST_URL ?: 'http://localhost:9000'}
+                -Dsonar.host.url=${config.sonarUrl ?: env.SONAR_HOST_URL ?: 'http://192.168.10.184:9000/'}
             """
         }
     }
