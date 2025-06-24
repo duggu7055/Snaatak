@@ -11,34 +11,34 @@ node {
         env.SONAR_SOURCES = 'src'
         env.SONAR_SCANNER_PATH = '/opt/sonar-scanner/bin/sonar-scanner'
         env.LCOV_PATH = 'coverage/lcov.info'
+        env.SONAR_URL = 'http://sonarqube.example.com' // SonarQube URL
         env.SLACK_CHANNEL = 'react-notifications'
         env.SLACK_CRED_ID = 'downtime-crew'
         env.EMAIL_TO = 'ds705589@gmail.com'
 
         // Generate dynamic report links
         def reportLinks = [
-            [name: 'SonarQube Report', url: "${env.SONAR_SCANNER_PATH}/report.html"],
+            [name: 'SonarQube Report', url: "${env.SONAR_URL}/dashboard?id=${env.SONAR_PROJECT_KEY}"],
             [name: 'Coverage Report', url: "${env.BUILD_URL}/artifact/coverage/index.html"]
         ]
 
-        stage('React SCA Analysis') {
-            def reactSCA = new org.downtimecrew.template.reactSCA.reactSCA()
-            reactSCA.call([
-                gitBranch: env.GIT_BRANCH,
-                gitRepoUrl: env.GIT_REPO_URL,
-                gitCredsId: env.GIT_CREDS_ID,
-                sonarCredsId: env.SONAR_CRED_ID,
-                sonarProjectKey: env.SONAR_PROJECT_KEY,
-                sonarSources: env.SONAR_SOURCES,
-                sonarScannerPath: env.SONAR_SCANNER_PATH,
-                lcovPath: env.LCOV_PATH,
-                slackChannel: env.SLACK_CHANNEL,
-                slackCredId: env.SLACK_CRED_ID,
-                emailTo: env.EMAIL_TO,
-                reportLinks: reportLinks
-            ])
-        }
-
+        // Run React SCA Analysis
+        def reactSCA = new org.downtimecrew.template.reactSCA.reactSCA()
+        reactSCA.call([
+            gitBranch: env.GIT_BRANCH,
+            gitRepoUrl: env.GIT_REPO_URL,
+            gitCredsId: env.GIT_CREDS_ID,
+            sonarUrl: env.SONAR_URL, // Pass SonarQube URL
+            sonarCredsId: env.SONAR_CRED_ID,
+            sonarProjectKey: env.SONAR_PROJECT_KEY,
+            sonarSources: env.SONAR_SOURCES,
+            sonarScannerPath: env.SONAR_SCANNER_PATH,
+            lcovPath: env.LCOV_PATH,
+            slackChannel: env.SLACK_CHANNEL,
+            slackCredId: env.SLACK_CRED_ID,
+            emailTo: env.EMAIL_TO,
+            reportLinks: reportLinks
+        ])
     } catch (Exception e) {
         currentBuild.result = 'FAILURE'
         error "Pipeline failed: ${e.message}"
