@@ -1,4 +1,4 @@
-package org.teamdowntimecrew.common
+package org.downtimecrew.common
 
 def call(Map config = [:]) {
     script {
