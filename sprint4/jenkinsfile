@@ -2,7 +2,7 @@
 node {
     // Define pipeline parameters
     env.GIT_BRANCH = 'main'
-    env.GIT_REPO_URL = 'https://github.com/duggu7055/Snaatak.git'
+    env.GIT_REPO_URL = 'https://github.com/snaatak-Downtime-Crew/frontend-api.git'
     env.GIT_CREDS_ID = 'yuvraj-git'
     env.SONAR_CRED_ID = 'durgesh-sonar'
     env.SONAR_PROJECT_KEY = 'ReactSCA-Project'
