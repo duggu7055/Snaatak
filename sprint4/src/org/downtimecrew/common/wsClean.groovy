@@ -1,8 +1,7 @@
 package org.downtimecrew.common
 
-def call() {
-    stage('Clean Workspace') {
+def call(Map config = [:]) {
+    stage(config.stageName ?: 'Clean Workspace') {
         cleanWs()
     }
 }
-
