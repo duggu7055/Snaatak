@@ -1,6 +1,6 @@
 package org.downtimecrew.common
 
-def notify(Map config = [:], steps) {
+def sendNotification(Map config = [:], steps) {
     def status = config.status ?: steps.env.BUILD_STATUS ?: 'UNKNOWN'
     def buildTrigger = config.buildTrigger ?: steps.env.BUILD_USER ?: 'Unknown'
     def failureReason = config.failureReason ?: 'Not Specified'
@@ -28,7 +28,6 @@ ${!isSuccess ? "*Failure Reason:* ${failureReason}\n*Failed Stage:* ${failedStag
     }
 
     def emailSubject = "${status}: ${steps.env.JOB_NAME} #${steps.env.BUILD_NUMBER}"
-
     def emailBody = """
 <html>
   <body>
@@ -40,14 +39,12 @@ ${!isSuccess ? "*Failure Reason:* ${failureReason}\n*Failed Stage:* ${failedStag
     <p><strong>Time (IST):</strong> ${now}</p>
     <p><strong>Build URL:</strong> <a href="${steps.env.BUILD_URL}">${steps.env.BUILD_URL}</a></p>
 """
-
     if (!isSuccess) {
         emailBody += """
     <p><strong>Failure Reason:</strong> ${failureReason}</p>
     <p><strong>Failed Stage:</strong> ${failedStage}</p>
 """
     }
-
     if (reportLinks) {
         emailBody += "<h3>Reports:</h3><ul>"
         reportLinks.each { link ->
@@ -55,7 +52,6 @@ ${!isSuccess ? "*Failure Reason:* ${failureReason}\n*Failed Stage:* ${failedStag
         }
         emailBody += "</ul>"
     }
-
     emailBody += "</body></html>"
 
     // Send Email
@@ -64,3 +60,5 @@ ${!isSuccess ? "*Failure Reason:* ${failureReason}\n*Failed Stage:* ${failedStag
     // Send Slack Notification
     steps.slackSend(channel: slackChannel, color: color, message: slackMsg, tokenCredentialId: slackCredId)
 }
+
+return this
