@@ -1,43 +1,35 @@
 package org.downtimecrew.common
 
-class Notification {
-    def steps
+def notify(Map config = [:], steps) {
+    def status = config.status ?: steps.env.BUILD_STATUS ?: 'UNKNOWN'
+    def buildTrigger = config.buildTrigger ?: steps.env.BUILD_USER ?: 'Unknown'
+    def failureReason = config.failureReason ?: 'Not Specified'
+    def failedStage = config.failedStage ?: 'Not Specified'
+    def slackChannel = config.slackChannel ?: '#default-channel'
+    def slackCredId = config.slackCredId ?: 'default-slack-cred-id'
+    def emailTo = config.emailTo ?: 'default@example.com'
+    def reportLinks = config.reportLinks ?: []
 
-    // Constructor to initialize 'steps'
-    Notification(steps) {
-        this.steps = steps
-    }
+    def isSuccess = (status == 'SUCCESS')
+    def color = isSuccess ? 'good' : 'danger'
+    def now = new Date().format("yyyy-MM-dd HH:mm:ss", TimeZone.getTimeZone('Asia/Kolkata'))
 
-    def call(Map config = [:]) {
-        def status = config.status ?: steps.env.BUILD_STATUS ?: 'UNKNOWN'
-        def buildTrigger = config.buildTrigger ?: 'Unknown'
-        def failureReason = config.failureReason ?: 'Not Specified'
-        def failedStage = config.failedStage ?: 'Not Specified'
-        def slackChannel = config.slackChannel ?: '#default-channel'
-        def slackCredId = config.slackCredId ?: 'default-slack-cred-id'
-        def emailTo = config.emailTo ?: 'default@example.com'
-        def reportLinks = config.reportLinks ?: []
-
-        def isSuccess = (status == 'SUCCESS')
-        def color = isSuccess ? 'good' : 'danger'
-        def now = new Date().format("yyyy-MM-dd HH:mm:ss", TimeZone.getTimeZone('Asia/Kolkata'))
-
-        def slackMsg = """*Build #${steps.env.BUILD_NUMBER} - ${status}*
+    def slackMsg = """*Build #${steps.env.BUILD_NUMBER} - ${status}*
 *Job:* `${steps.env.JOB_NAME}`
 *Triggered by:* ${buildTrigger}
 *Time (IST):* ${now}
 ${!isSuccess ? "*Failure Reason:* ${failureReason}\n*Failed Stage:* ${failedStage}" : ""}
 *Build URL:* <${steps.env.BUILD_URL}|View Build>"""
 
-        if (reportLinks) {
-            reportLinks.each { link ->
-                slackMsg += "\n${link.name}: ${link.url}"
-            }
+    if (reportLinks) {
+        reportLinks.each { link ->
+            slackMsg += "\n${link.name}: ${link.url}"
         }
+    }
 
-        def emailSubject = "${status}: ${steps.env.JOB_NAME} #${steps.env.BUILD_NUMBER}"
+    def emailSubject = "${status}: ${steps.env.JOB_NAME} #${steps.env.BUILD_NUMBER}"
 
-        def emailBody = """
+    def emailBody = """
 <html>
   <body>
     <h2>Jenkins Build Notification: ${status}</h2>
@@ -49,27 +41,26 @@ ${!isSuccess ? "*Failure Reason:* ${failureReason}\n*Failed Stage:* ${failedStag
     <p><strong>Build URL:</strong> <a href="${steps.env.BUILD_URL}">${steps.env.BUILD_URL}</a></p>
 """
 
-        if (!isSuccess) {
-            emailBody += """
+    if (!isSuccess) {
+        emailBody += """
     <p><strong>Failure Reason:</strong> ${failureReason}</p>
     <p><strong>Failed Stage:</strong> ${failedStage}</p>
 """
-        }
-
-        if (reportLinks) {
-            emailBody += "<h3>Reports:</h3><ul>"
-            reportLinks.each { link ->
-                emailBody += "<li><a href='${link.url}'>${link.name}</a></li>"
-            }
-            emailBody += "</ul>"
-        }
-
-        emailBody += "</body></html>"
-
-        // Send Email
-        steps.mail(to: emailTo, subject: emailSubject, body: emailBody, mimeType: 'text/html')
-
-        // Send Slack Notification
-        steps.slackSend(channel: slackChannel, color: color, message: slackMsg, tokenCredentialId: slackCredId)
     }
+
+    if (reportLinks) {
+        emailBody += "<h3>Reports:</h3><ul>"
+        reportLinks.each { link ->
+            emailBody += "<li><a href='${link.url}'>${link.name}</a></li>"
+        }
+        emailBody += "</ul>"
+    }
+
+    emailBody += "</body></html>"
+
+    // Send Email
+    steps.mail(to: emailTo, subject: emailSubject, body: emailBody, mimeType: 'text/html')
+
+    // Send Slack Notification
+    steps.slackSend(channel: slackChannel, color: color, message: slackMsg, tokenCredentialId: slackCredId)
 }
