@@ -1,32 +1,32 @@
-@Library('React_SCA_Library') _
+@Library('shared-library') _
 
 node {
-    // Define environment variables
+    // Environment Variables
     env.GIT_BRANCH = 'main'
-    env.GIT_REPO_URL = 'https://github.com/snaatak-Downtime-Crew/frontend-api.git'
+    env.GIT_REPO_URL = 'https://github.com/snaatak-Downtime-Crew/salary-api.git'
     env.GIT_CREDS_ID = 'yuvraj-git'
     env.SONAR_CRED_ID = 'durgesh-sonar'
-    env.SONAR_PROJECT_KEY = 'ReactSCA-Project'
-    env.SONAR_SOURCES = 'src'
+    env.SONAR_PROJECT_KEY = 'Java-bug-analysis-Project'
     env.SONAR_SCANNER_PATH = '/opt/sonar-scanner/bin/sonar-scanner'
-    env.SONAR_URL = 'http://192.168.10.184:9000' // SonarQube URL
-    env.SLACK_CHANNEL = 'react-notification'
+    env.SONAR_URL = 'http://192.168.10.184:9000'
+    env.SLACK_CHANNEL = 'java-notification'
     env.SLACK_CRED_ID = 'downtime-crew'
-    env.EMAIL_TO = 'ds705589@gmail.com'
+    env.EMAIL_TO = 'ys716123@gmail.com'
+    env.SONAR_JAVA_BINARIES = 'target/classes' // Path to compiled Java binaries
 
-    // Run React SCA Analysis
-    def reactSCA = new org.downtimecrew.template.reactSCA.reactSCA()
-    reactSCA.call([
-        gitBranch: env.GIT_BRANCH,
-        gitRepoUrl: env.GIT_REPO_URL,
-        gitCredsId: env.GIT_CREDS_ID,
-        sonarUrl: env.SONAR_URL, // Pass SonarQube URL
-        sonarCredsId: env.SONAR_CRED_ID,
-        sonarProjectKey: env.SONAR_PROJECT_KEY,
-        sonarSources: env.SONAR_SOURCES,
-        sonarScannerPath: env.SONAR_SCANNER_PATH,
-        slackChannel: env.SLACK_CHANNEL,
-        slackCredId: env.SLACK_CRED_ID,
-        emailTo: env.EMAIL_TO
+    // Call the SonarBugAnalysis shared library
+    def bugAnalysis = new org.teamdowntimecrew.template.java.SonarBugAnalysis()
+    bugAnalysis.call([
+        gitBranch        : env.GIT_BRANCH,
+        gitRepoUrl       : env.GIT_REPO_URL,
+        gitCredsId       : env.GIT_CREDS_ID,
+        sonarUrl         : env.SONAR_URL,
+        sonarCredsId     : env.SONAR_CRED_ID,
+        sonarProjectKey  : env.SONAR_PROJECT_KEY,
+        sonarScannerPath : env.SONAR_SCANNER_PATH,
+        slackChannel     : env.SLACK_CHANNEL,
+        slackCredId      : env.SLACK_CRED_ID,
+        emailTo          : env.EMAIL_TO,
+        javaBinariesPath : env.SONAR_JAVA_BINARIES // Pass Java binaries
     ])
 }
