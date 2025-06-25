@@ -11,7 +11,7 @@ node {
     env.SONAR_URL = 'http://192.168.10.184:9000'
     env.SLACK_CHANNEL = 'java-notification'
     env.SLACK_CRED_ID = 'downtime-crew'
-    env.EMAIL_TO = 'ys716123@gmail.com'
+    env.EMAIL_TO = 'ds705589gmail.com'
     env.SONAR_JAVA_BINARIES = 'target/classes' // Path to compiled Java binaries
 
     // Call the SonarBugAnalysis shared library
