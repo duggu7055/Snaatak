@@ -1,6 +1,6 @@
 package org.downtimecrew.template.terraformCD
 import org.downtimecrew.common.*
-import org.downtimecrew.reactSCA.*
+import org.downtimecrew.terraform.*
 
 def call(String url, String branch, String creds, String Directory) {
 
