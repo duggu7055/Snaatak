@@ -14,7 +14,13 @@ class terraform {
         def terraformapply = new terraformapply()
 
         wsClean.call()
-        gitCheckOut.call(url, branch, creds)
+
+        gitCheckOut.call([
+            repoUrl: url,
+            branch: branch,
+            creds: creds
+        ])
+
         terraformInit.call(Directory)
         terraformFmt.call(Directory)
         terraformValidate.call(Directory)
