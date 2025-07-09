@@ -1,32 +1,18 @@
 @Library('shared-library') _
 
 node {
-    // Environment Variables
-    env.GIT_BRANCH = 'main'
-    env.GIT_REPO_URL = 'https://github.com/snaatak-Downtime-Crew/salary-api.git'
-    env.GIT_CREDS_ID = 'yuvraj-git'
-    env.SONAR_CRED_ID = 'durgesh-sonar'
-    env.SONAR_PROJECT_KEY = 'Java-bug-analysis-Project'
-    env.SONAR_SCANNER_PATH = '/opt/sonar-scanner/bin/sonar-scanner'
-    env.SONAR_URL = 'http://192.168.10.184:9000'
-    env.SLACK_CHANNEL = 'java-notification'
-    env.SLACK_CRED_ID = 'downtime-crew'
-    env.EMAIL_TO = 'ds705589gmail.com'
-    env.SONAR_JAVA_BINARIES = 'target/classes' // Path to compiled Java binaries
+    // Define environment variables
+    env.GIT_BRANCH     = 'main'
+    env.GIT_REPO_URL   = 'https://github.com/duggu7055/Terraform-static-code.git'
 
-    // Call the SonarBugAnalysis shared library
-    def bugAnalysis = new org.teamdowntimecrew.template.java.SonarBugAnalysis()
-    bugAnalysis.call([
-        gitBranch        : env.GIT_BRANCH,
-        gitRepoUrl       : env.GIT_REPO_URL,
-        gitCredsId       : env.GIT_CREDS_ID,
-        sonarUrl         : env.SONAR_URL,
-        sonarCredsId     : env.SONAR_CRED_ID,
-        sonarProjectKey  : env.SONAR_PROJECT_KEY,
-        sonarScannerPath : env.SONAR_SCANNER_PATH,
-        slackChannel     : env.SLACK_CHANNEL,
-        slackCredId      : env.SLACK_CRED_ID,
-        emailTo          : env.EMAIL_TO,
-        javaBinariesPath : env.SONAR_JAVA_BINARIES // Pass Java binaries
-    ])
+    // Terraform directory path inside the repo (adjust if different)
+    def terraformDirectory = 'terraform/network-skeleton/vpc'
+
+    def terraformPipeline = new org.downtimecrew.template.terraformCD.terraform()
+    terraformPipeline.call(
+        env.GIT_REPO_URL,
+        env.GIT_BRANCH,
+        env.GIT_CREDS_ID,
+        terraformDirectory
+    )
 }
