@@ -1,16 +1,14 @@
 @Library('shared-library') _
 
 node {
-    // Set environment variables
     env.GIT_BRANCH = 'main'
     env.GIT_REPO_URL = 'https://github.com/duggu7055/Terraform-static-code.git'
-    env.GIT_CREDS_ID = 'downtime_github'
-
-    // Path to Terraform code after checkout
+    
+    
     def terraformDirectory = 'Network-skelton/VPC'
 
-    // Call the pipeline class from shared library
-    def terraformPipeline = new org.downtimecrew.template.terraformCD.terraform()
+    // Correct class name with capital T
+    def terraformPipeline = new org.downtimecrew.template.terraformCD.Terraform()
     terraformPipeline.call(
         env.GIT_REPO_URL,
         env.GIT_BRANCH,
