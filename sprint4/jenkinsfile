@@ -1,18 +1,32 @@
 @Library('shared-library') _
 
 node {
-    // Define environment variables
+    // Git and Terraform repo details
     env.GIT_BRANCH     = 'main'
     env.GIT_REPO_URL   = 'https://github.com/duggu7055/Terraform-static-code.git'
-
-    // Terraform directory path inside the repo (adjust if different)
+  
+    // Path inside repo where Terraform code is present
     def terraformDirectory = 'terraform/network-skeleton/vpc'
 
-    def terraformPipeline = new org.downtimecrew.template.terraformCD.terraform()
-    terraformPipeline.call(
-        env.GIT_REPO_URL,
-        env.GIT_BRANCH,
-        env.GIT_CREDS_ID,
-        terraformDirectory
-    )
+    // Inject AWS credentials
+    withCredentials([usernamePassword(
+        credentialsId: 'terraform-aws-creds',              // 🔐 ID you created in Jenkins
+        usernameVariable: 'DURGESH_AWS_KEY',               // Custom variable for Access Key
+        passwordVariable: 'DURGESH_AWS_SECRET'             // Custom variable for Secret Key
+    )]) {
+        // Export them as environment variables for Terraform to use
+        withEnv([
+            "AWS_ACCESS_KEY_ID=${env.DURGESH_AWS_KEY}",
+            "AWS_SECRET_ACCESS_KEY=${env.DURGESH_AWS_SECRET}"
+        ]) {
+            // Call shared library pipeline
+            def terraformPipeline = new org.downtimecrew.template.terraformCD.terraform()
+            terraformPipeline.call(
+                env.GIT_REPO_URL,
+                env.GIT_BRANCH,
+                env.GIT_CREDS_ID,
+                terraformDirectory
+            )
+        }
+    }
 }
