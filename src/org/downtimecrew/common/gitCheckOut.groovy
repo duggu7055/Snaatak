@@ -1,8 +1,9 @@
 package org.downtimecrew.common
 
-class gitCheckOut {
-    def call(Map config = [:]) {
-        stage(config.stageName ?: 'Checkout Code') {
+def call(Map config = [:]) {
+    stage(config.stageName ?: 'Checkout Code') {
+        def checkoutDir = config.checkoutDir ?: '.'  
+        dir(checkoutDir) {                           
             checkout([
                 $class: 'GitSCM',
                 branches: [[name: config.branch ?: env.GIT_BRANCH ?: 'main']],
@@ -14,3 +15,4 @@ class gitCheckOut {
         }
     }
 }
+
