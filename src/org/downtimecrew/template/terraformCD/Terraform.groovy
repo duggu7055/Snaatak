@@ -3,7 +3,7 @@ package org.downtimecrew.template.terraformCD
 import org.downtimecrew.common.*
 import org.downtimecrew.terraform.*
 
-class Terraform1 {
+class Terraform {
     def call(String url, String branch, String creds, String Directory) {
         def wsClean = new wsClean()
         def gitCheckOut = new gitCheckOut()
