@@ -1,36 +1,22 @@
 package org.downtimecrew.terraform
+def call(Map args = [:], steps) {
+    if (!args.containsKey('envDir')) {
+        steps.error "'envDir' parameter is required"
+    }
 
-class terraformapply {
-    def call(String Directory) {
-        stage("Terraform Action") {
-            script {
-                def actionChoice = input(
-                    message: "Which Terraform action would you like to perform?",
-                    parameters: [
-                        choice(name: "ACTION", choices: ["apply", "destroy", "skip"], description: "Choose the Terraform action")
-                    ]
-                )
+    def autoApprove = args.get('autoApprove', true)
+    def awsCredsId  = args.get('awsCredsId', 'aws-central-account-creds')
 
-                if (actionChoice == "skip") {
-                    echo "Terraform action skipped by the user."
-                    return
-                }
+    steps.stage("Terraform Apply") {
 
-                def userApproval = input(
-                    message: "Do you want to proceed with Terraform ${actionChoice}?",
-                    parameters: [
-                        choice(name: "CONFIRM", choices: ["Yes", "No"], description: "Confirm your action")
-                    ]
-                )
+        steps.input message: "Approve Terraform Apply for '${args.envDir}'?", ok: "Apply Now"
 
-                if (userApproval == "Yes") {
-                    sh """
-                        cd ${Directory}
-                        terraform ${actionChoice} -auto-approve
-                    """
-                } else {
-                    echo "Terraform ${actionChoice} was skipped by the user."
-                }
+        steps.withCredentials([
+            [$class: 'AmazonWebServicesCredentialsBinding', credentialsId: awsCredsId]
+        ]) {
+            steps.dir(args.envDir) {
+                def applyCommand = "terraform apply ${autoApprove ? '-auto-approve' : ''}"
+                steps.sh applyCommand.trim()
             }
         }
     }
