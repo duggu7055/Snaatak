@@ -1,3 +1,4 @@
+package org.downtimecrew.terraform
 def call(Map args = [:], steps) {
     if (!args.containsKey('envDir')) {
         steps.error "'envDir' parameter is required"
