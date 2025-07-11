@@ -1,17 +1,12 @@
-package org.downtimecrew.template.terraformCD
-
-import org.downtimecrew.common.*
-import org.downtimecrew.terraform.*
-
 def call(Map config = [:]) {
-    def wsClean     = new cleanWorkspace()
-    def gitCheckOut = new checkout()
-    def fmt         = new terraformFmt()
-    def init        = new terraformInit()
-    def validate    = new terraformValidate()
-    def plan        = new terraformPlan()
-    def apply       = new terraformapply()
-    def destroy     = new terraformdestroy()
+    def wsClean     = new org.downtimecrew.common.cleanWorkspace()
+    def gitCheckOut = new org.downtimecrew.common.checkout()
+    def fmt         = new org.downtimecrew.terraform.terraformFmt()
+    def init        = new org.downtimecrew.terraform.terraformInit()
+    def validate    = new org.downtimecrew.terraform.terraformValidate()
+    def plan        = new org.downtimecrew.terraform.terraformPlan()
+    def apply       = new org.downtimecrew.terraform.terraformapply()
+    def destroy     = new org.downtimecrew.terraform.terraformdestroy()
 
     try {
         wsClean.call()
